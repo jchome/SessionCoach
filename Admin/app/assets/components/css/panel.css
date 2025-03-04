@@ -1,0 +1,19 @@
+app-panel{
+    display: block;
+    flex: 1 1 auto; /* flex-fill */
+    border: 1px solid var(--panel-border-color);
+    border-radius: 4px;
+    overflow: auto;
+    /*padding: 2px;*/
+    
+    font-size: 14px;
+    background-color: var(--body-bg-color);
+    position: relative;
+    
+}
+
+/* Prepare the content to display in column mode */
+app-panel.flex-column{
+    display: flex;
+    flex-flow: column;
+}

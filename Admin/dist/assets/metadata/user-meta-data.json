@@ -1,0 +1,55 @@
+{
+    "name": "User",
+    "fields": [
+            {
+                "key": "id",
+                "primary": true,
+                "type": "int",
+                "required": true,
+                "show": {
+                    "list": false,
+                    "edit": true
+                }
+            },
+            {
+                "key": "name",
+                "primary": false,
+                "type": "varchar(255)",
+                "required": true,
+                "show": {
+                    "list": true,
+                    "edit": true
+                }
+            },
+            {
+                "key": "login",
+                "primary": false,
+                "type": "varchar(255)",
+                "required": true,
+                "show": {
+                    "list": true,
+                    "edit": true
+                }
+            },
+            {
+                "key": "password",
+                "primary": false,
+                "type": "varchar(255)",
+                "required": true,
+                "show": {
+                    "list": true,
+                    "edit": true
+                }
+            },
+            {
+                "key": "token",
+                "primary": false,
+                "type": "varchar(4000)",
+                "required": false,
+                "show": {
+                    "list": true,
+                    "edit": true
+                }
+            }
+    ]
+}

@@ -1,0 +1,42 @@
+session-card{
+    width: 80%;
+    --bg-image: url('../assets/img/default-session.jpg');
+}
+.card{
+    margin: 1em 1em;
+    height: 200px;
+    background-size: cover;
+    background-position: top;
+    color: white;
+    border: 1px solid black;
+    box-shadow: 0 3px 3px black;
+    cursor: pointer;
+
+    background-image: linear-gradient(
+          rgba(0, 0, 0, 0.2), 
+          rgba(0, 0, 0, 0.7), 
+          rgba(0, 0, 0, 1)
+        ),
+        var(--bg-image);
+    background-size: cover;
+}
+.card:active{
+    position: relative;
+    top: 2px;
+}
+.card .card-title{
+    font-family: var(--font-title);
+    margin-bottom: 1em;
+}
+.card .card-body{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 0.75em;
+    width: 100%;
+}
+
+.card .card-text{
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,8 @@
+app-tab-item a.nav-link{
+    padding: 4px 8px;
+    font-size: 14px;
+}
+app-tab-items.small app-tab-item a.nav-link{
+    padding: 2px 4px;
+    font-size: 12px;
+}

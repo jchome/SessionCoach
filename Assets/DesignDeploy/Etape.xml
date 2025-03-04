@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object shortName="sc_step" displayName="Etape" obName="Step">
+	<description></description>
+	<attribute id="id" name="Identifiant" nullable="NO" isKey="YES" autoincrement="YES" type="int" >
+		<description></description>
+	</attribute>
+	<attribute id="name" name="Nom" nullable="NO" type="varchar(255)" >
+		<description></description>
+	</attribute>
+	<attribute id="duration" name="Durée" nullable="NO" type="varchar(255)" >
+		<description></description>
+	</attribute>
+	<attribute id="visual" name="Visuel" nullable="YES" type="file" >
+		<description></description>
+	</attribute>
+	<attribute id="description" name="Description" nullable="YES" type="text(4000)" >
+		<description></description>
+	</attribute>
+	<attribute id="order" name="Ordre" nullable="NO" type="int" >
+		<description></description>
+	</attribute>
+	<attribute id="module_id" name="Module" nullable="NO" type="int" referencedObject="Module" access="default" display="name" >
+		<description></description>
+	</attribute>
+</object>

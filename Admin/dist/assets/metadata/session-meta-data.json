@@ -1,0 +1,35 @@
+{
+    "name": "Session",
+    "fields": [
+            {
+                "key": "id",
+                "primary": true,
+                "type": "int",
+                "required": true,
+                "show": {
+                    "list": false,
+                    "edit": true
+                }
+            },
+            {
+                "key": "name",
+                "primary": false,
+                "type": "varchar(255)",
+                "required": true,
+                "show": {
+                    "list": true,
+                    "edit": true
+                }
+            },
+            {
+                "key": "visual",
+                "primary": false,
+                "type": "file",
+                "required": false,
+                "show": {
+                    "list": true,
+                    "edit": true
+                }
+            }
+    ]
+}

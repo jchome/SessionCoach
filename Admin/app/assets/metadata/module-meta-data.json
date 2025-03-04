@@ -1,0 +1,61 @@
+{
+    "name": "Module",
+    "fields": [
+            {
+                "key": "id",
+                "primary": true,
+                "type": "int",
+                "required": true,
+                "show": {
+                    "list": false,
+                    "edit": true
+                }
+            },
+            {
+                "key": "name",
+                "primary": false,
+                "type": "varchar(255)",
+                "required": true,
+                "show": {
+                    "list": true,
+                    "edit": true
+                }
+            },
+            {
+                "key": "visual",
+                "primary": false,
+                "type": "file",
+                "required": false,
+                "show": {
+                    "list": true,
+                    "edit": true
+                }
+            },
+            {
+                "key": "order",
+                "primary": false,
+                "type": "int",
+                "required": true,
+                "show": {
+                    "list": true,
+                    "edit": true
+                }
+            },
+            {
+                "key": "session_id",
+                "primary": false,
+                "type": "int",
+                "required": true,
+                "show": {
+                    "list": true,
+                    "edit": true
+                },
+                "references": {
+                    "object": "session",
+                    "key": "id",
+                    "label": "name",
+                    "access": "default"
+                } 
+            }
+    ]
+}

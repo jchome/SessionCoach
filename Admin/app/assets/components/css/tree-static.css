@@ -1,0 +1,10 @@
+app-tree-static{
+}
+
+app-tree-static .tree-item{
+    cursor: pointer;
+}
+
+app-tree-static ol, ul {
+    padding-left: 1rem;
+}

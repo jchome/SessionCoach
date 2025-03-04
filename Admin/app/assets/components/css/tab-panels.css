@@ -1,0 +1,9 @@
+
+app-tab-panels {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto; /* flex-fill */
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}

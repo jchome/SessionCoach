@@ -1,0 +1,17 @@
+app-container{
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+}
+
+app-container[disposition="horizontal"]{
+    flex-direction: row;
+    width: calc(100% - 1px);
+}
+
+app-container[disposition="vertical"]{
+    flex-direction: column;
+    height: calc(100% - 1px);
+}

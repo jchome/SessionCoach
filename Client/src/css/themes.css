@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
+:root{
+    --bg-color: #0c0e16;
+
+    --brand-color-hex: #ef9f2f;
+    --brand-color-rgb: 239, 159, 47;
+
+    --custom-first-color-bg: #0d6efd;
+    --custom-first-color-text: rgba(255, 255, 255, 0.9);
+  
+    --custom-second-color-bg: rgba(0, 0, 255);
+    --custom-second-color-text: rgba(255, 255, 255, 0.9);
+  
+    --custom-disabled-color-bg-light: #dbdbdb;
+    --custom-disabled-color-bg: #6c757d;
+    --custom-disabled-color-text: #505050;
+  
+    --color-marine: #1B2A6F;
+    --color-turquoise: #0096C1;
+    --color-indigo: #121037;
+    --color-bleu-ciel: #1F78A4;
+    --color-bleu-gris: #69A3B9;
+    --color-orange: #F5A030;
+    --color-rose: #B42573;
+    --color-corail: #E2271D;
+    --color-vert-opaline: #71BE91;
+    --color-vert-armee: #32693B;
+    --color-gris-fonce: #505468;
+    --color-gris-clair: #E4E4E8;
+  
+    /*--font-text: 'Poppins', sans-serif !important;*/
+    --font-title: "Bree Serif", serif;
+    
+}
+.bree-serif-regular {
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+  }

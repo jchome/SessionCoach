@@ -1,0 +1,24 @@
+@import url('dropdown-item.css');
+
+app-dropdown{
+    font-size: 16px;
+}
+
+app-dropdown .dropdown{
+    display: inline-block;
+}
+app-dropdown .dropdown.drop-align-right ul{
+    left: auto;
+    right: 0;
+}
+
+app-dropdown .dropdown .btn::after{
+    content: "\F282";
+    font-family: "bootstrap-icons";
+    display: inline-block;
+    font-size: 6px;
+}
+app-dropdown .dropdown .dropdown-menu{
+    font-size: 1em;
+    cursor: pointer;
+}

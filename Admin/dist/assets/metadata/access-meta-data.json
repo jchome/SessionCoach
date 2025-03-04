@@ -1,0 +1,47 @@
+{
+    "name": "Access",
+    "fields": [
+            {
+                "key": "id",
+                "primary": true,
+                "type": "int",
+                "required": true,
+                "show": {
+                    "list": false,
+                    "edit": true
+                }
+            },
+            {
+                "key": "user_id",
+                "primary": false,
+                "type": "int",
+                "required": true,
+                "show": {
+                    "list": true,
+                    "edit": true
+                },
+                "references": {
+                    "object": "user",
+                    "key": "id",
+                    "label": "name",
+                    "access": "default"
+                } 
+            },
+            {
+                "key": "session_id",
+                "primary": false,
+                "type": "int",
+                "required": true,
+                "show": {
+                    "list": true,
+                    "edit": true
+                },
+                "references": {
+                    "object": "session",
+                    "key": "id",
+                    "label": "name",
+                    "access": "default"
+                } 
+            }
+    ]
+}

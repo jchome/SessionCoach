@@ -1,0 +1,46 @@
+app-menu-item .menu-item{
+    font-size: 1.25em;
+    margin: 4px;
+    padding: 4px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+app-menu-item .menu-item:hover{
+    border: 1px solid rgba(255,255,255, 0.2);
+}
+
+app-menu-item .menu-item.active{
+    background-color: rgba(255,255,255, 0.1); /* #2d2b29;*/
+    color: var(--bs-body-hilight-color);
+}
+
+app-menu-item .menu-icon{
+    display: inline;
+    margin-right: 0.5em;
+}
+
+app-menu-item .menu-title{
+    display: inline;
+}
+
+
+app-menu[data-width="small"] app-menu-item .menu-item .menu-icon{
+    display: block;
+    text-align: center;
+    margin-right: 0;
+}
+app-menu[data-width="small"] app-menu-item .menu-item .menu-title{
+    display: block;
+    text-align: center;
+    font-size: 0.75em;
+}
+
+app-menu[data-width="extra-small"] app-menu-item .menu-item .menu-icon{
+    display: block;
+    text-align: center;
+    margin-right: 0;
+}
+app-menu[data-width="extra-small"] app-menu-item .menu-item .menu-title{
+    display: none;
+}

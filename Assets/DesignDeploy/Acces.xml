@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object shortName="sc_access" displayName="Accès" obName="Access">
+	<description></description>
+	<attribute id="id" name="Identifiant" nullable="NO" isKey="YES" autoincrement="YES" type="int" >
+		<description></description>
+	</attribute>
+	<attribute id="user_id" name="Utilisateur" nullable="NO" type="int" referencedObject="Utilisateur" access="default" display="Name" >
+		<description></description>
+	</attribute>
+	<attribute id="session_id" name="Séance" nullable="NO" type="int" referencedObject="Seance" access="default" display="Name" >
+		<description></description>
+	</attribute>
+</object>

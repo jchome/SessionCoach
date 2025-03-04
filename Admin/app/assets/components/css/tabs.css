@@ -1,0 +1,13 @@
+@import url('tab-items.css');
+@import url('tab-panels.css');
+
+app-tabs {
+    display: flex;
+    flex-direction: column;
+}
+
+app-tabs .panels-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}

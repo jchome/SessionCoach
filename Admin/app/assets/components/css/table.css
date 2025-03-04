@@ -1,0 +1,101 @@
+
+html[data-bs-theme="dark"], 
+html[data-bs-theme="dark"] .table {
+    --bs-table-bg: #222;
+    --bs-table-color-state: var(--bs-body-color);
+    --th-text-color: #ddd;
+    --th-bg-color: #444;
+    --bs-table-border-color: #777;
+}
+
+html[data-bs-theme="light"],
+html[data-bs-theme="light"] .table {
+    --bs-table-bg: var(--body-bg-color);
+    --bs-table-color-state: var(--bs-body-color);
+    --th-text-color: #222;
+    --th-bg-color: #ccc;
+    --bs-table-border-color: #aaa;
+}
+
+table{
+    width: 100%;
+}
+
+table.table-sm caption{
+    padding: 0;
+    font-size: 14px;
+}
+table.table-sm{
+    margin: 0;
+    font-size: 10px;
+}
+
+table tr th{
+    --bs-table-color-state: var(--bs-body-hilight-color);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    
+    vertical-align: bottom;
+    padding-bottom: 6px;
+    background-color: var(--th-bg-color);
+}
+
+
+table input, table input.form-control{
+    border: none;
+    border-bottom: 1px solid var(--input-border-color);
+    background-color: transparent;
+    border-radius: 0;
+    width: 100%;
+    padding: 0;
+    font-size: inherit;
+    color: var(--input-text-color);
+}
+
+table label.form-label{
+    margin-bottom: 0;
+}
+
+table input:focus,
+table input:focus-visible{
+    border-bottom-color: var(--bs-body-color);
+    background-color: var(--input-bg-color);
+    border-radius: 0;
+    outline: none;
+}
+
+table input.form-control:focus{
+    border-color: inherit;
+    box-shadow: none;
+}
+
+table.grid{ 
+    border: 1px solid var(--bs-table-border-color);
+}
+table.grid tr{
+    border-bottom: 1px solid var(--bs-table-border-color);
+}
+
+table.grid td, table.grid th{
+    padding: 2px;
+    border-right: 1px solid var(--bs-table-border-color);
+}
+
+table th.table-cell-header{
+    cursor: pointer;
+}
+
+table th.table-cell-header.order-asc::after{
+    content: '\F128';
+    font-family: 'bootstrap-icons';
+    display: inline-block;
+}
+
+table th.table-cell-header.order-desc::after{
+    content: '\F148';
+    font-family: 'bootstrap-icons';
+    display: inline-block;
+}

@@ -1,0 +1,15 @@
+@import url('step-detail.css');
+
+module-detail{
+
+}
+module-detail .module-header{
+    position: sticky;
+    top: 0;
+    border: 1px solid white;
+    height: 50px;
+    background-color: #100;
+}
+module-detail .steps{
+    border: 1px solid blue;
+}

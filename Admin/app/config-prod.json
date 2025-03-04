@@ -1,0 +1,10 @@
+{
+    "server":{
+        "host": "https://jc-apps.fr/SessionCoach/API",
+        "uploads": "/uploads/",
+        "auth": {
+            "app": "SessionCoach-Backend",
+            "key": "--"
+        }
+    }
+}

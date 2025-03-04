@@ -1,0 +1,81 @@
+{
+    "name": "Step",
+    "fields": [
+            {
+                "key": "id",
+                "primary": true,
+                "type": "int",
+                "required": true,
+                "show": {
+                    "list": false,
+                    "edit": true
+                }
+            },
+            {
+                "key": "name",
+                "primary": false,
+                "type": "varchar(255)",
+                "required": true,
+                "show": {
+                    "list": true,
+                    "edit": true
+                }
+            },
+            {
+                "key": "duration",
+                "primary": false,
+                "type": "varchar(255)",
+                "required": true,
+                "show": {
+                    "list": true,
+                    "edit": true
+                }
+            },
+            {
+                "key": "visual",
+                "primary": false,
+                "type": "file",
+                "required": false,
+                "show": {
+                    "list": true,
+                    "edit": true
+                }
+            },
+            {
+                "key": "description",
+                "primary": false,
+                "type": "text(4000)",
+                "required": false,
+                "show": {
+                    "list": true,
+                    "edit": true
+                }
+            },
+            {
+                "key": "order",
+                "primary": false,
+                "type": "int",
+                "required": true,
+                "show": {
+                    "list": true,
+                    "edit": true
+                }
+            },
+            {
+                "key": "module_id",
+                "primary": false,
+                "type": "int",
+                "required": true,
+                "show": {
+                    "list": true,
+                    "edit": true
+                },
+                "references": {
+                    "object": "module",
+                    "key": "id",
+                    "label": "name",
+                    "access": "default"
+                } 
+            }
+    ]
+}

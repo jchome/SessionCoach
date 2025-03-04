@@ -1,0 +1,96 @@
+{
+    "app-login": {
+        "connect": "Se connecter",
+        "loading": "Chargement...",
+        "login": "Identifiant de connexion",
+        "password": "Mot de passe",
+        "server-check": "Vérification du serveur...",
+        "welcome": "Bienvenue"
+    },
+    "app-main": {
+        "loading": "Chargement...",
+        "welcome": "Bienvenue !"
+    },
+    "app-navbar": {
+        "mainTitle": "SessionCoach Admin",
+        "logout": "Voulez-vous vous déconnecter de l'application ?",
+        "menu": {
+            "parameters": "Paramètres",
+            "content": "Contenu",
+            "users-data": "Données utilisateur"
+        }
+    },
+    "action": {
+        "add": "Ajouter",
+        "apply": "Appliquer",
+        "cancel": "Annuler",
+        "current-file": "Fichier actuel",
+        "delete": "Supprimer",
+        "download": "Télécharger",
+        "edit": "Modifier",
+        "detail": "Détails"
+    },
+    "object":{
+        "access": {
+            "label": "Droits d'accès",
+            "title-list": "Liste des droits d'accès",
+            "title-edit": "Editer un droit d'accès",
+            "title-create": "Créer un droit d'accès",
+            "field": {
+            }
+        },
+        "module": {
+            "label": "Module",
+            "title-list": "Liste des modules",
+            "title-edit": "Editer un module",
+            "title-create": "Créer un module",
+            "field": {
+                "name": "Nom",
+                "visual": "Visuel",
+                "order": "Ordre"
+            }
+        },
+        "session": {
+            "label": "Séance",
+            "title-list": "Liste des séances",
+            "title-edit": "Editer un séance",
+            "title-create": "Créer un séance",
+            "field": {
+                "name": "Nom",
+                "visual": "Visuel"
+            }
+        },
+        "step": {
+            "label": "Etape",
+            "title-list": "Liste des étapes",
+            "title-edit": "Editer un étape",
+            "title-create": "Créer un étape",
+            "field": {
+                "name": "Nom",
+                "duration": "Durée",
+                "visual": "Visuel",
+                "description": "Description",
+                "order": "Ordre"
+            }
+        },
+        "user": {
+            "label": "Utilisateur",
+            "title-list": "Liste des utilisateurs",
+            "title-edit": "Editer un utilisateur",
+            "title-create": "Créer un utilisateur",
+            "field": {
+                "name": "Nom",
+                "login": "Identifiant",
+                "password": "Mot de passe",
+                "token": "Token" 
+            }
+        }
+    },
+    "message":{
+        "delete-confirm": "Etes-vous sûr de vouloir supprimer cet objet ?",
+        "password-update": "Laisser vide pour garder le même mot de passe, sinon, le mot de passe sera changé.",
+        "loading": "En cours de chargement...",
+        "loaded": "Le fichier est prêt"
+    }
+    
+}

@@ -1,0 +1,13 @@
+/*
+ * Lancer la commande suivante pour insérer les données
+ * cat cretab_access.sqlite | sqlite3 test_database.sdb
+ */
+ 
+CREATE TABLE sc_access (
+	id integer NOT NULL PRIMARY KEY AUTOINCREMENT , 
+	user_id integer NOT NULL , 
+	session_id integer NOT NULL 
+);
+
+
+

@@ -1,0 +1,12 @@
+@import url('session-detail.css');
+
+session-popup{
+}
+
+session-popup .modal-body{
+    --bs-modal-padding: 0;
+}
+
+session-popup .modal-header{
+    --bs-modal-header-padding: 0.5em 1em;
+}

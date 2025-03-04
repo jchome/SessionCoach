@@ -1,0 +1,329 @@
+@import url('navbar.css');
+@import url('container.css');
+@import url('panel.css');
+@import url('panel-floating.css');
+@import url('divider.css');
+@import url('tabs.css');
+
+@import url('table.css');
+@import url('tree.css');
+
+@import url('dropzone.css');
+@import url('menu.css');
+
+:root{
+    --navbar-height: 48px;
+    --bs-btn-active-color: #57a5e0;
+}
+
+
+html[data-bs-theme="light"]{
+    --bs-body-color: #333;
+    --body-bg-color: #eee;
+    --bs-body-hilight-color: #1d1d1d;
+    --bs-link-color-rgb: 49,152,231;
+    --bs-link-hover-color-rgb: 236,236,236;
+    --input-border-color: #555;
+    --input-bg-color: #ccc;
+    --input-text-color: rgb(51,51,51);
+    --bs-link-hover-color-rgb: rgb(10, 88, 202);
+
+    --panel-border-color: #999;
+    --bs-toast-color: var(--bs-body-hilight-color);
+
+}
+
+html[data-bs-theme="dark"]{
+    --bs-body-color: #aaaaaa;
+    --bs-body-hilight-color: #e6e6e6;
+    --body-bg-color: #1d1d1d;
+    --bs-link-color-rgb: 49,152,231;
+    --bs-link-hover-color-rgb: 236,236,236;
+    --input-border-color: black;
+    --input-bg-color: #333;
+    --input-text-color: #fff;
+    
+    --panel-border-color: black;
+    --bs-dropdown-bg: #111;
+}
+/*
+html[data-bs-theme="dark"] .btn{
+    --bs-btn-bg: transparent;
+    --bs-btn-border-color: transparent;
+    --bs-btn-hover-border-color: rgb(170, 170, 170);
+    --bs-btn-color: rgb(170, 170, 170);
+    --bs-btn-active-bg: transparent;
+    --bs-btn-active-border-color: transparent;
+    
+    --bs-btn-active-color: #57a5e0;
+}*/
+.btn-xs{
+    --bs-btn-padding-y: 0rem;
+    --bs-btn-padding-x: 0.1rem;
+    --bs-btn-font-size: 0.75rem;
+    --bs-btn-border-radius: 3px;
+}
+
+.btn-xs.rounded-circle{
+    height: 20px;
+    width: 20px;
+    --bs-btn-padding-y: 0px;
+    --bs-btn-padding-x: 0px;
+    margin-top: 4px;
+    position: relative;
+}
+.btn-xs.rounded-circle i{
+    position: relative;
+    top: -1px;
+}
+
+body{
+    background-color: var(--body-bg-color);
+    position: relative;
+}
+
+h6{
+    color: var(--bs-body-hilight-color);
+}
+
+
+a{
+    text-decoration: none;
+}
+
+/* first 'app-container' that comes juste after 'app-navbar' */
+app-navbar + app-container{
+    padding-top: var(--navbar-height);
+}
+
+.font-small{
+    font-size: 10px;
+}
+
+.separator-0{
+    display: inline-block;
+    width: 0em;
+    text-align: center;
+    opacity: 0.5; 
+}
+.separator-1{
+    display: inline-block;
+    width: 1em;
+    text-align: center;
+    opacity: 0.5; 
+}
+.separator-2{
+    display: inline-block;
+    width: 2em;
+}
+.separator-3{
+    display: inline-block;
+    width: 3em;
+}
+.separator-fill{
+    flex-grow: 1 !important;
+}
+
+
+button.btn.btn-extra{
+    background: linear-gradient(102deg,#7068de 0%,hsl(315,62%,60%) 100%);
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0 0 6px black, 0 0 3px black;
+    border-radius: 40px;
+    border: 1px solid rgba(255,255,255,0.75);
+    box-shadow: 0 0 14px rgba(255,255,255,0.25);
+    color: rgb(230, 230, 230);
+}
+
+html[data-bs-theme="light"] button.btn.btn-extra{
+    border-color: rgba(0,0,0,0.75);
+    box-shadow: 0 0 14px rgba(0,0,0,0.75);
+}
+
+button.btn.btn-extra:hover{
+    box-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+button.btn.btn-outline{
+    border: 1px solid rgba(255,255,255,0.25);
+}
+button.btn.btn-outline:hover{
+    border: 1px solid rgba(255,255,255,1);
+}
+button.btn.btn-primary{
+    background-color: #0a58ca;
+}
+
+button.btn-borderless{
+    border: none;
+    padding: 0 2px;
+}
+button.btn-borderless:hover{
+    color: var(--bs-body-hilight-color);
+}
+
+/* ***************************************** */
+/* Toast */
+
+.toast{
+    display: block;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    max-width: calc(100vw - 8px * 2);
+    margin-inline: auto;
+    
+    --bs-toast-header-color: var(--bs-body-hilight-color);
+}
+
+.toast.toast-bottom{
+    bottom: 8px;
+}
+.toast.toast-top{
+    top: calc(var(--navbar-height) + 8px);
+}
+html[data-bs-theme="dark"] .toast.toast-info{
+    --bs-toast-header-bg: #0c66e4; /*#00515c;*/
+}
+html[data-bs-theme="dark"] .toast.toast-success{
+    --bs-toast-header-bg: #1f845a; /*#005c14;*/
+}
+html[data-bs-theme="dark"] .toast.toast-warning{
+    --bs-toast-header-bg: #b89000; /*#7a7800;*/
+}
+html[data-bs-theme="dark"] .toast.toast-danger{
+    --bs-toast-header-bg: #ca3521; /*#7a0000;*/
+}
+
+html[data-bs-theme="light"] .toast.toast-info{
+    --bs-toast-header-bg: #6feeff;
+}
+html[data-bs-theme="light"] .toast.toast-success{
+    --bs-toast-header-bg: #4bff72;
+}
+html[data-bs-theme="light"] .toast.toast-warning{
+    --bs-toast-header-bg: #fffc55;
+}
+html[data-bs-theme="light"] .toast.toast-danger{
+    --bs-toast-header-bg: #ff4a4a;
+}
+.icon-info, .icon-success, .icon-warning, .icon-danger{
+    display: none;
+}
+.toast.toast-info .icon-info{
+    display: block;
+}
+.toast.toast-success .icon-success{
+    display: block;
+}
+.toast.toast-warning .icon-warning{
+    display: block;
+}
+.toast.toast-danger .icon-danger{
+    display: block;
+}
+
+/* ***************************************** */
+/* Accodion */
+
+html[data-bs-theme="dark"] .accordion{
+    --bs-accordion-bg: #222;
+}
+html[data-bs-theme="light"] .accordion{
+    --bs-accordion-bg: rgba(255,255,255,0.5);
+}
+.accordion{
+    --bs-accordion-active-bg: var(--bs-dropdown-bg);
+    
+}
+.accordion-button{
+    --bs-accordion-btn-padding-x: 0.5em;
+    --bs-accordion-btn-padding-y: 0.25em;
+    font-size: 12px;
+    --bs-accordion-active-color: var(--th-text-color);
+    --bs-accordion-active-bg: var(--th-bg-color);
+    --bs-accordion-btn-focus-box-shadow: none;
+}
+.accordion-body{
+    --bs-accordion-body-padding-x: 0.5em;
+    --bs-accordion-body-padding-y: 0.25em;
+    font-size: 12px;
+}
+.accordion-collapse{
+    transition: background-color 0.25s ease;
+}
+
+html[data-bs-theme="dark"] .accordion-collapse.show{
+    background-color: #111;
+}
+
+html[data-bs-theme="light"] .accordion-collapse.show{
+    background-color: #ddd;
+}
+
+/* Icon at left */
+.accordion-button:after {
+    order: -1; 
+    margin-left: 0; 
+    margin-right: 0.5em;
+}
+.accordion-header{
+    display: flex;
+    justify-content: space-between;
+    transition: var(--bs-accordion-transition);
+}
+
+.accordion-header:has(.accordion-button:not(.collapsed) ){
+    background-color: var(--th-bg-color);
+}
+
+.accordion-button{
+    width: auto;
+}
+
+/* fill blank for accordion */
+.accordion{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+.accordion-item{
+    transition-duration: 0.2s;
+}
+.accordion-item:has(.accordion-collapse.collapse){
+    display: flex; /* Using "flex", we can stretch opened item to take as much space as possible (when there is not ".show", it's not interesting) */
+    flex-direction: column;
+    flex: 0 0 auto;
+}
+.accordion-item:has(.accordion-collapse.collapse.show){
+    flex: 1 1 auto;
+}
+.accordion-collapse.collapse{
+    height: 0px; /* use 0px to force the scrolling bar computation when the height is more than 0 */
+    overflow-y: auto;
+}
+.accordion-collapse.collapse.show{
+    flex: 1 1 auto; /* Once again, use as much space as possible */
+}
+.accordion-item:has(.accordion-collapse.collapsing){
+    flex: 0 0 auto;
+}
+.accordion-collapse.collapsing{
+    height: 0px; /* use 0px to force the scrolling bar computation when the height is more than 0 */
+    max-height: 0;
+}
+
+/* Make the accordion item have a large height to make it visible */
+.accordion-collapse.collapse.show{
+    height: 100%;
+}
+
+
+/* ***************************************** */
+/*  */
+html[data-bs-theme="dark"] #panelWorkspace{
+    background-color: rgb(40,40,40);
+}
+html[data-bs-theme="light"] #panelWorkspace{
+    background-color: white;
+}

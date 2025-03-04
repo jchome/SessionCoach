@@ -1,0 +1,17 @@
+/*
+ * Lancer la commande suivante pour insérer les données
+ * cat cretab_step.sqlite | sqlite3 test_database.sdb
+ */
+ 
+CREATE TABLE sc_step (
+	id integer NOT NULL PRIMARY KEY AUTOINCREMENT , 
+	name varchar(255) NOT NULL , 
+	duration varchar(255) NOT NULL , 
+	visual varchar(4000) , 
+	description text(4000) , 
+	order integer NOT NULL , 
+	module_id integer NOT NULL 
+);
+
+
+

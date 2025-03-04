@@ -1,0 +1,5 @@
+@import url('tab-item.css');
+
+app-tab-items {
+    padding: 2px;
+}

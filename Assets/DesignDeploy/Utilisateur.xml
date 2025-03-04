@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object shortName="sc_user" displayName="Utilisateur" obName="User">
+	<description></description>
+	<attribute id="id" name="Identifiant" nullable="NO" isKey="YES" autoincrement="YES" type="int" >
+		<description></description>
+	</attribute>
+	<attribute id="name" name="Nom" nullable="NO" type="varchar(255)" >
+		<description></description>
+	</attribute>
+	<attribute id="login" name="Login" nullable="NO" type="varchar(255)" >
+		<description></description>
+	</attribute>
+	<attribute id="password" name="Mot de passe" nullable="NO" type="varchar(255)" >
+		<description></description>
+	</attribute>
+	<attribute id="token" name="Token" nullable="YES" type="varchar(4000)" >
+		<description></description>
+	</attribute>
+</object>

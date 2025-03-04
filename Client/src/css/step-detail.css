@@ -1,0 +1,21 @@
+step-detail{
+    min-height: 90vh;
+    display: block;
+    position: relative;
+    background-color: rgb(4, 4, 43);
+}
+step-detail:first-child{
+    min-height: 75vh;
+}
+
+step-detail .step-header{
+    border: 1px solid violet;
+}
+
+step-detail .step-footer{
+    position: absolute;
+    bottom: 1em;
+    text-align: center;
+    width: 100%;
+}
+

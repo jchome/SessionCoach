@@ -1,0 +1,15 @@
+/*
+ * Lancer la commande suivante pour insérer les données
+ * cat cretab_user.sqlite | sqlite3 test_database.sdb
+ */
+ 
+CREATE TABLE sc_user (
+	id integer NOT NULL PRIMARY KEY AUTOINCREMENT , 
+	name varchar(255) NOT NULL , 
+	login varchar(255) NOT NULL , 
+	password varchar(255) NOT NULL , 
+	token varchar(4000) 
+);
+
+
+

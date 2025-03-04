@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<link href="api-main.css" media="screen, projection" rel="stylesheet" type="text/css" />
+
+<script language="javascript">
+$(document).ready(function () {
+	var height = $(window).height() - 50;
+	$('.scrollable').css('height', function(){ return height; });
+});
+$(window).resize(function(){
+	var height = $(window).height() - 50;
+	$('.scrollable').css('height', function(){ return height; });
+});
+</script>
+<body>
+<div class="pageContainer">
+
+	<div class="sidebar">
+		<h1>API</h1>
+		<div class="scrollable">
+			<h2><a href="#instanceVars">Variables d'instance</a></h2>
+			<ul>
+<li><a href="#id">id</a> : <i>int</i></li>
+				<li><a href="#name">name</a> : <i>varchar(255)</i></li>
+				<li><a href="#visual">visual</a> : <i>file</i></li>
+				<li><a href="#order">order</a> : <i>int</i></li>
+				<li><a href="#session_id">session_id</a> : <i>int</i></li>
+			</ul>
+			<h2><a href="#classVars">Variables de classe</a></h2>
+
+
+
+
+			<h2><a href="#instanceMethods">Méthodes d'instance</a></h2>
+			<ul>
+				<li><a href="#save">save()</a></li>
+				<li><a href="#update">update()</a></li>
+			</ul>
+			
+			
+			
+			<h2><a href="#classMethods">Méthodes de classe</a></h2>
+			<ul>
+				<li><a href="#Module_modelFromRow">Module_modelFromRow()</a></li>
+				<li><a href="#getAllModules">getAllModules()</a></li>
+				<li><a href="#getCountModules">getCountModules()</a></li>
+				<li><a href="#getModule">getModule()</a></li>
+				<li><a href="#delete">delete()</a></li>
+				<li><a href="#getAllByCriteria">getAllByCriteria()</a></li>
+				<li><a href="#countByCriteria">countByCriteria()</a></li>
+			</ul>
+			<h2><a href="#Copyright">Copyright</a></h2>
+		</div>
+	</div>
+	<div class="content">
+		<h1>Module_model</h1>
+		
+		
+		
+		<h2><a name="instanceVars" id="instanceVars">Variables d'instance</a></h2>
+<h3 class="api"><a name="id" id="id">id</a> : type <i>int</i></h3>
+			<div class="detail">
+				<p></p>
+			</div>
+
+			<h3 class="api"><a name="name" id="name">name</a> : type <i>varchar(255)</i></h3>
+			<div class="detail">
+				<p></p>
+			</div>
+
+			<h3 class="api"><a name="visual" id="visual">visual</a> : type <i>file</i></h3>
+			<div class="detail">
+				<p></p>
+			</div>
+
+			<h3 class="api"><a name="order" id="order">order</a> : type <i>int</i></h3>
+			<div class="detail">
+				<p></p>
+			</div>
+
+			<h3 class="api"><a name="session_id" id="session_id">session_id</a> : type <i>int</i></h3>
+			<div class="detail">
+				<p></p>
+			</div>
+
+
+
+
+<h2><a name="classVars" id="classVars">Variables de classe</a></h2>
+
+
+
+
+		<h2><a name="instanceMethods" id="instanceMethods">Méthodes d'instance</a></h2>
+		<h3 class="api"><a name="save" id="save">save(&lt;<i>$db</i>&gt;)</a></h3>
+		<div class="detail">
+			Enregistre en base de donn&eacute;es un nouvel enregistrement
+		</div>
+
+
+		<h3 class="api"><a name="update" id="update">update(&lt;<i>$db</i>&gt;)</a></h3>
+		<div class="detail">
+			Mise a jour des donn&eacute;es d'un enregistrement
+		</div>
+
+
+
+		<!--  -->
+		<h2><a name="classMethods" id="classMethods">Méthodes de classe</a></h2>
+
+		<h3 class="api"><a name="Module_modelFromRow" id="Module_modelFromRow">Module_modelFromRow(&lt;<i>$row</i>&gt;)</a></h3>
+		<div class="detail">
+			Cr&eacute;e une nouvelle instance &agrave; partir d'un enregistrement de base de donn&eacute;es
+		</div>
+
+		<h3 class="api"><a name="getAllModules" id="getAllModules">getAllModules(&lt;<i>$db</i>&gt;, &lt;<i>$orderBy = null</i>&gt;, &lt;<i>$asc = null</i>&gt;, &lt;<i>$limit = null</i>&gt;, &lt;<i>$offset = null</i>&gt;)</a></h3>
+		<div class="detail">
+			r&eacute;cup&egrave;re tous les enregistrements
+			<ul>
+				<li>$db : Base de donn&eacute;es</li>
+				<li>$orderBy : cl&eacute; de tri</li>
+				<li>$asc : 'asc' ou 'desc'. Par d&eacute;faut : 'asc'</li>
+				<li>$limit : nombre d'enregistrements limite</li>
+				<li>$offset : nombre d'enregistrements sauter avant de r&eacute;cup&eacute;rer le premier enregistrement</li>
+			</ul>
+		</div>
+
+		<h3 class="api"><a name="getCountModules()" id="getCountModules()">getCountModules(&lt;<i>$db</i>&gt;)</a></h3>
+		<div class="detail">
+			Compte le nombre d'enregistrements
+			<ul>
+				<li>$db : Base de donn&eacute;es</li>
+			</ul>
+		</div>
+		
+		<h3 class="api"><a name="getModule" id="getModule">getModule(&lt;<i>$db</i>&gt;, &lt;<i>$id</i>&gt;)</a></h3>
+		<div class="detail">
+			R&eacute;cup&egrave;re un objet par la cl&eacute; d'unicit&eacute;
+		</div>
+		
+		<h3 class="api"><a name="delete" id="delete">delete(&lt;<i>$db</i>&gt;, &lt;<i>$id</i>&gt;)</a></h3>
+		<div class="detail">
+			Supprime un objet par la cl&eacute; d'unicit&eacute;
+		</div>
+
+		<h3 class="api"><a name="getAllByCriteria" id="getAllByCriteria">getAllByCriteria(&lt;<i>$db</i>&gt;, &lt;<i>$criteriaArray</i>&gt;, &lt;<i>$orderBy = null</i>&gt;, &lt;<i>$asc = null</i>&gt;, &lt;<i>$limit = null</i>&gt;, &lt;<i>$offset = null</i>&gt;)</a></h3>
+		<div class="detail">
+			Récupère les objets selon les critères de sélection
+			<ul>
+				<li>$db : Base de donn&eacute;es</li>
+				<li>$criteriaArray : Liste de crit&egrave;res de s&eacute;lection</li>
+				<li>$orderBy : cl&eacute; de tri</li>
+				<li>$asc : 'asc' ou 'desc'. Par d&eacute;faut : 'asc'</li>
+				<li>$limit : nombre d'enregistrements limite</li>
+				<li>$offset : nombre d'enregistrements sauter avant de r&eacute;cup&eacute;rer le premier enregistrement</li>
+			</ul>
+		</div>
+
+		<h3 class="api"><a name="countByCriteria" id="countByCriteria">countByCriteria(&lt;<i>$db</i>&gt;, &lt;<i>$criteriaArray</i>&gt;)</a></h3>
+		<div class="detail">
+			Compte le nombre d'enregistrements selon les critères de sélection
+			<ul>
+				<li>$db : Base de donn&eacute;es</li>
+				<li>$criteriaArray : Liste de critères de sélection</li>
+			</ul>
+		</div>
+
+
+
+	
+		<h1><a name="Copyright" id="Copyright">Copyright</a></h1>
+	
+		<div class="detail">
+			<p>
+			&copy; by Julien CORON - 2013<br>
+			Copyright 2013 Julien CORON<br>
+			  <br>
+			  Licence :<br>
+			   Ce programme est un logiciel libre ; vous pouvez le redistribuer ou le 
+			   modifier suivant les termes de la GNU General Public License telle que 
+			   publiée par la Free Software Foundation ; soit la version 3 de la licence, 
+			   soit (à votre gré) toute version ultérieure.<br>
+			<br>
+			   Ce programme est distribué dans l'espoir qu'il sera utile, mais SANS AUCUNE 
+			   GARANTIE ; pas même la garantie implicite de COMMERCIABILISABILITÉ ni 
+			   d'ADÉQUATION à UN OBJECTIF PARTICULIER. Consultez la GNU General Public 
+			   License pour plus de détails.<br>
+			 <br>
+			  <br>
+			   This program is free software: you can redistribute it and/or modify
+			    it under the terms of the GNU General Public License as published by
+			    the Free Software Foundation, either version 3 of the License, or
+			    (at your option) any later version.<br>
+			<br>
+			    This program is distributed in the hope that it will be useful,
+			    but WITHOUT ANY WARRANTY; without even the implied warranty of
+			    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+			    GNU General Public License for more details.<br>
+			<br>
+			    You should have received a copy of the GNU General Public License
+			    along with this program.  If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.
+			</p>
+		</div> <!-- .detail -->
+
+	</div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+/*
+ * Lancer la commande suivante pour insérer les données
+ * cat cretab_module.sqlite | sqlite3 test_database.sdb
+ */
+ 
+CREATE TABLE sc_module (
+	id integer NOT NULL PRIMARY KEY AUTOINCREMENT , 
+	name varchar(255) NOT NULL , 
+	visual varchar(4000) , 
+	order integer NOT NULL , 
+	session_id integer NOT NULL 
+);
+
+
+

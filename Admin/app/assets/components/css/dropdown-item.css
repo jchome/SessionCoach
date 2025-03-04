@@ -1,0 +1,8 @@
+
+html[data-bs-theme="light"] app-dropdown-item .dropdown-item{
+    --bs-dropdown-link-hover-color: #222;
+    --bs-dropdown-link-color: #111;
+}
+html[data-bs-theme="light"] app-dropdown-item .dropdown-item:hover{
+    background-color: #ccc;
+}

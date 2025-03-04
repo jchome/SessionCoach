@@ -1,0 +1,133 @@
+app-panel-floating{
+    --margin-size: 8px;
+    position: absolute;
+    border-radius: 4px;
+    overflow: auto;
+
+    margin: var(--margin-size);
+    background-color: var(--body-bg-color);
+    font-size: 11px;
+}
+
+/* ***************************************** */
+/* Positionning */
+app-panel-floating[anchor="top-left"]{
+    top: 0;
+    left: 0;
+}
+app-panel-floating[anchor="top-right"]{
+    top: 0;
+    right: 0;
+}
+app-panel-floating[anchor="top-center"]{
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+app-panel-floating[anchor="bottom-left"]{
+    bottom: 0;
+    left: 0;
+}
+app-panel-floating[anchor="bottom-right"]{
+    bottom: 0;
+    right: 0;
+}
+app-panel-floating[anchor="bottom-center"]{
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+app-panel-floating[anchor="center-left"]{
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+app-panel-floating[anchor="center-right"]{
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+
+
+
+/* ***************************************** */
+/* Filling */
+
+app-panel-floating[fill="y"]{
+    height: calc(100% - calc(2 * var(--margin-size)));
+}
+app-panel-floating[fill="x"]{
+    width: calc(100% - calc(2 * var(--margin-size)));
+}
+
+/* ***************************************** */
+/* Content */
+app-panel-floating .panel-title{
+    padding: 6px;
+    color: var(--bs-body-color);
+    border-bottom: 1px solid var(--panel-border-color);
+    width: 100%;
+}
+app-panel-floating .panel-title .dropdown{
+    float: right;
+}
+app-panel-floating .panel-title .dropdown .dropdown-toggle{
+    color: var(--bs-body-color) /*rgba(255, 255, 255, 0.9)*/;
+}
+app-panel-floating .panel-title .dropdown-menu{
+    font-size: 11px;
+}
+
+app-panel-floating .panel-content{
+    padding: 6px;
+}
+
+/* ***************************************** */
+/* movable */
+app-panel-floating[movable] .move{
+    padding-left: 2px;
+    display: inline-block;
+    cursor: move;
+}
+app-panel-floating[movable] .panel-title{
+    display: inline-block;
+    padding-left: 2px;
+}
+app-panel-floating[movable] .panel-content{
+    display: inline-block;
+}
+
+/* ***************************************** */
+/* Minimized */
+app-panel-floating[minimized]{
+    display: inline-block;
+}
+
+app-panel-floating[minimized] .panel-title{
+    display: none;
+}
+app-panel-floating[minimized] .panel-content{
+    display: inline-block;
+}
+
+app-panel-floating.dragging{
+    border: 2px dashed red;
+    cursor: grabbing;
+}
+
+/* ***************************************** */
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--body-bg-color);
+    border: 1px solid rgba(0,0,0, 0.5);
+    padding: 0 4px;
+    border-radius: 2px;
+    font-size: 11px;
+}

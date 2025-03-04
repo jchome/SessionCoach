@@ -1,0 +1,78 @@
+@import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../../node_modules/bootstrap-icons/font/bootstrap-icons.min.css";
+
+@import url('./app.css');
+
+@import url('./themes.css');
+
+:root{
+  --font-title: 'Eras Demi ITC', serif;
+  --font-text: 'Varela Round';
+  --font-icons: "bootstrap-icons";
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+}
+
+a.start:hover{
+  color: var(--custom-first-color-text);
+}
+
+a.start{
+  display: block;
+  color: var(--custom-first-color-text);
+  background-color: var(--custom-first-color-bg);
+  font-size: 32px;
+  padding-left: 6px;
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  padding-top: 6px;
+  box-shadow: 0 0 5px white;
+}
+
+.top-right-1{
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+}
+.bottom-right-1{
+  position: absolute;
+  right: 0.5em;
+  bottom: 0.5em;
+}
+.bottom-right-2{
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
+}
+.bottom-right-3{
+  position: absolute;
+  right: 2em;
+  bottom: 2em;
+}
+.bottom-left-1{
+  position: absolute;
+  left: 0.5em;
+  bottom: 0.5em;
+}
+.circle-white{
+  background-color: white;
+  border-radius: 100%;
+}
+
+.font-text{
+  font-family: var(--font-text);
+}
+
+.font-small{
+  font-size: small;
+}
+
+.font-smaller{
+  font-size: smaller;
+}

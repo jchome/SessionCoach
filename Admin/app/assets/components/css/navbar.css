@@ -1,0 +1,38 @@
+@import url('dropdown.css');
+
+html[data-bs-theme="light"] app-navbar{
+    --navbar-bg-color: 62,99,221;
+    --navbar-fg-color: 255,255,255;
+    --navbar-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    --bs-link-color-rgb: 49,152,231;
+    --bs-link-hover-color-rgb: 236,236,236;
+    --navbar-bg-image: linear-gradient(to right bottom, #6381e5, #5a7ae3, #5172e1, #486bdf, #3e63dd);
+}
+html[data-bs-theme="dark"] app-navbar{
+    --navbar-bg-color: 50,50,50;
+    --navbar-fg-color: 170,170,170;
+    --navbar-shadow: 0 1px 2px black;
+    --navbar-bg-image: linear-gradient(to right bottom, #323232, #2c2c2c, #272727, #212121, #1c1c1c);
+}
+
+app-navbar .navbar{
+    background-color: rgb( var(--navbar-bg-color) );
+    color: rgb( var(--navbar-fg-color) );
+    height: var(--navbar-height, 48px);
+    box-shadow: var(--navbar-shadow);
+    --bs-body-color: rgb( var(--navbar-fg-color) );
+    --bs-btn-active-border-color: rgba( var(--navbar-fg-color), 0.75);
+    --bs-btn-active-color: rgba( var(--navbar-fg-color), 1);
+    padding-left: 0.5em;
+    background-image: var(--navbar-bg-image);
+}
+
+app-navbar .version{
+    font-size: 8px;
+    position: relative;
+    top: calc(var(--navbar-height) / 2);
+}
+app-navbar button.btn-outline.active{
+    background-color: rgb(var(--navbar-fg-color));
+    color: rgb(var(--navbar-bg-color));
+}
