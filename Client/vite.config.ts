@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite';
-require('dotenv').config({ path: '.env.development' /*`.env.${process.env.NODE_ENV}`*/ })
+require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
 
 export default defineConfig({
   root: './src',
-  base: '/SessionCoach-App/', // For deployment on website
+  base: '/SessionCoach/App/', // For deployment on website
   //base: '/', // For deployment on local
   build: {
     outDir: '../dist',

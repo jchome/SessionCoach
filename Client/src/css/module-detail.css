@@ -6,10 +6,10 @@ module-detail{
 module-detail .module-header{
     position: sticky;
     top: 0;
-    border: 1px solid white;
     height: 50px;
-    background-color: #100;
+    background-color: var(--bs-body-bg);
+    font-family: var(--font-title);
 }
 module-detail .steps{
-    border: 1px solid blue;
+    
 }

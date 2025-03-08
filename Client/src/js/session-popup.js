@@ -9,6 +9,9 @@ export default class SessionPopupElement extends LitElement {
 
     constructor() {
         super();
+
+        this.addEventListener('scrollToElement', this.scrollToElement)
+        this.addEventListener('closePopup', this.close)
     }
 
     /**
@@ -51,6 +54,20 @@ export default class SessionPopupElement extends LitElement {
             
         })*/
         modal.show()
+    }
+
+    close(event){
+        const modal = Modal.getOrCreateInstance('session-popup #sessionModal', {})
+        modal.hide()
+    }
+
+    scrollToElement(event){
+        const targetId = event.detail
+        const modal = this.querySelector('#sessionModal .modal-body')
+        var top = modal.scrollTop
+            + this.querySelector('#'+targetId).getBoundingClientRect().top
+            - this.querySelector('#sessionModal .modal-header').getBoundingClientRect().height
+        modal.scrollTo({top: top, behavior: 'smooth'});
     }
 
 }

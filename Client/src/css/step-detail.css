@@ -1,16 +1,61 @@
 step-detail{
-    min-height: 90vh;
+    min-height: 85vh;
     display: block;
     position: relative;
-    background-color: rgb(4, 4, 43);
+    background-color: #1a1d20;
 }
 step-detail:first-child{
     min-height: 75vh;
 }
 
 step-detail .step-header{
-    border: 1px solid violet;
+    font-family: var(--font-title);
+    cursor: pointer;
 }
+step-detail .step-content{
+    position: relative;
+}
+step-detail .step-content .indicator-icon{
+    content: '';
+    --size: 120px;
+    display: block;
+    color: transparent;
+    background-image: url('../assets/icon/play.svg');
+    background-position: center;
+    background-size: cover;
+    opacity: 0.6;
+    width: var(--size);
+    height: var(--size);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+step-detail .step-content.pause .indicator-icon{
+    background-image: url('../assets/icon/play.svg');
+    animation: appear 500ms linear forwards;
+}
+
+step-detail .step-content.play .indicator-icon{
+    /*background-image: url('../assets/icon/pause.svg');*/
+    animation: vanish 500ms linear forwards;
+}
+
+
+@keyframes appear {
+    from {opacity: 0;}
+    to {opacity: 0.6;}
+}
+@keyframes vanish {
+    from {opacity: 0.6;}
+    to {opacity: 0;}
+}
+
+step-detail .step-content .description{
+    font-size: 0.8em;
+}
+
 
 step-detail .step-footer{
     position: absolute;
@@ -19,3 +64,17 @@ step-detail .step-footer{
     width: 100%;
 }
 
+step-detail .step-footer .progress-bar{
+    background-color: #fff;
+    box-shadow: 0px 0px 5px #fff, 0px 0px 10px #ffffff80;
+}
+
+step-detail .step-footer .next-btn{
+    --size: 34px;
+    width: var(--size);
+    height: var(--size);
+    background-color: #eee;
+    border-radius: 50%;
+    color: black;
+    font-size: 20px;
+}

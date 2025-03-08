@@ -1,12 +1,13 @@
 @import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 @import "../../node_modules/bootstrap-icons/font/bootstrap-icons.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 @import url('./app.css');
 
 @import url('./themes.css');
 
 :root{
-  --font-title: 'Eras Demi ITC', serif;
+  --font-title: "Roboto Condensed", sans-serif;
   --font-text: 'Varela Round';
   --font-icons: "bootstrap-icons";
 }

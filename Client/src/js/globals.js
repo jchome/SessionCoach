@@ -1,6 +1,4 @@
 
-console.log("SERVER_URL", SERVER_URL)
-
 /**
  * Call an URL to the server, and use cache if possible
  * 
@@ -39,4 +37,26 @@ window.call = function(url, method = "GET", data = {}, headers = undefined){
             reject(error)
         });
     })
+}
+
+/**
+* Convert String duration to number of seconds
+* @param {String} msDuration as "mm:ss.xxx"
+* @returns Nomber nb of seconds
+*/
+window.msToSeconds = function(msDuration){
+   const [mins, seconds] = msDuration.split(':')
+   return parseInt(mins) * 60 + parseFloat(seconds)
+}
+
+/**
+* Convert number of seconds to mm:ss
+* 
+* @param {Number} nbSeconds 
+* @returns String
+*/
+window.secondsToMs = function(nbSeconds){
+   const minutes = Math.trunc(nbSeconds / 60)
+   const seconds = nbSeconds % 60
+   return `${(minutes<10)?("0"):("")}${minutes}:${(seconds<10)?("0"):("")}${seconds}`
 }

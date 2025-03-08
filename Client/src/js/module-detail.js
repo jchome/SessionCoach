@@ -10,6 +10,8 @@ export default class ModuleDetailElement extends LitElement {
 
     constructor() {
         super();
+
+        this.addEventListener('nextStep', this.gotoNextStep)
     }
     
     /**
@@ -23,16 +25,40 @@ export default class ModuleDetailElement extends LitElement {
     render() {
         const stepsHtml = this.module.steps.map(step => {
             return html`
-                <step-detail .step=${step}></step-detail>`
+                <step-detail .step=${step}  id="step_${step.id}"></step-detail>`
         })
         return html`
-        <div class="module-header">
-            ${ this.module.name }
+        <div class="module-header" id="module_${this.module.id}">
+            <i class="bi bi-bookmark"></i> ${ this.module.name }
         </div>
         <div class="steps">
             ${ stepsHtml }
         </div>
         `
+    }
+
+    gotoNextStep(event){
+        const currentStep = event.detail
+        var nextStep = undefined
+        for(let step of this.module.steps){
+            if(step.order > currentStep.order){
+                nextStep = step
+                break
+            }
+        }
+        if(nextStep == undefined){
+            //console.log("Go to next module")
+            this.dispatchEvent(new CustomEvent('gotoNextModule', {
+                detail: this.module,
+                bubbles: true
+            }))
+        }else{
+            this.dispatchEvent(new CustomEvent('scrollToElement', {
+                detail: 'step_' + nextStep.id,
+                bubbles: true
+            }))
+            this.querySelector(`step-detail#step_${nextStep.id}`).startTimer()
+        }
     }
 }
 

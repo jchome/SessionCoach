@@ -10,6 +10,8 @@ export default class SessionDetailElement extends LitElement {
 
     constructor() {
         super();
+
+        this.addEventListener('gotoNextModule', this.gotoNextModule)
     }
     
     /**
@@ -27,6 +29,27 @@ export default class SessionDetailElement extends LitElement {
         return this.session.modules.map(module => {
             return html`<module-detail .module=${module}></module-detail>`
         })
+    }
+
+    gotoNextModule(event){
+        const currentModule = event.detail
+        var nextModule = undefined
+        for(let module of this.session.modules){
+            if(module.order > currentModule.order){
+                nextModule = module
+                break
+            }
+        }
+        if(nextModule == undefined){
+            this.dispatchEvent(new CustomEvent('closePopup', {
+                bubbles: true
+            }))
+        }else{
+            this.dispatchEvent(new CustomEvent('scrollToElement', {
+                detail: 'module_' + nextModule.id,
+                bubbles: true
+            }))
+        }
     }
 }
 
