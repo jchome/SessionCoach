@@ -262,6 +262,10 @@ class Mimes
         ],
         'tif'  => 'image/tiff',
         'tiff' => 'image/tiff',
+        // New file formats for the web
+        'avif' => 'image/avif', // AV1 Image File Format
+        'apng' => 'image/apng', // Animated Portable Network Graphics
+        'webp' => 'image/webp', // Web Picture
         'css'  => [
             'text/css',
             'text/plain',

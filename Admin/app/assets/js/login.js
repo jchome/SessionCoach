@@ -146,8 +146,8 @@ export default class LoginPage extends LitElement {
             if(responseOk && responseOk.status === 'ok'){
                 const user = responseOk.data
                 Promise.all([
-                    Preferences.set({key: KEY_USER_TOKEN,value: JSON.stringify(user.token)}),
-                    Preferences.set({key: KEY_USER,value: JSON.stringify(user)}),
+                    Preferences.set({key: KEY_USER_TOKEN, value: JSON.stringify(user.token)}),
+                    Preferences.set({key: KEY_USER, value: JSON.stringify(user)}),
                 ]).then( () => {
                     document.location.href = window.BASE_HREF
                 })

@@ -120,6 +120,9 @@ function manageFileUpload($data, $fieldName, $existingObject = null){
 
         // Save file with the good extension
         $preview_ext = Mimes::guessExtensionFromType($metadata["mime"]);
+        if($preview_ext == ""){
+            log_message('debug', "Mime type is unkwown " . $data[$fieldName]);
+        }
         $filename =  'content_' . $data['id'] . '_'.$fieldName.'-'.time().'.' . $preview_ext;
         file_put_contents(PUBLIC_PATH . 'uploads/' . $filename, $metadata["data"]);
         $data[$fieldName] = $filename;

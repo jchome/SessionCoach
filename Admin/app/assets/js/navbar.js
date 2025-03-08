@@ -1,5 +1,6 @@
 import { LitElement, html } from 'lit'
 import { translate, get } from 'lit-translate'
+import { Preferences } from '@capacitor/preferences'
 
 import DropdownItemElement from '../components/js/dropdown-item.js'
 
@@ -118,9 +119,13 @@ export default class NavBarElement extends LitElement {
         if(!confirm( get("app-navbar.logout") )){
             return
         }
-        this.dispatchEvent(new CustomEvent('logout', {
-            bubbles: true,
-        }))
+        Preferences.set({
+            key: KEY_USER,
+            value: null
+        }).then(() => {
+            this.user = undefined
+        })
+        document.location.href = window.BASE_HREF + "/pages/login.html"
     }
 
     onMenu(event){

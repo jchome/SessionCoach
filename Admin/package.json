@@ -4,7 +4,7 @@
   "description": "Application to manage Sessions",
   "main": "index.js",
   "scripts": {
-    "start": "vite",
+    "start": "NODE_ENV=development vite",
     "vite-build-KO": "vite build",
     "build": "node ./build.js",
     "webpack-win": ".\\node_modules\\.bin\\webpack.cmd",

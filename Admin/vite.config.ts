@@ -3,12 +3,15 @@ import { resolve } from 'path'
 import image from '@rollup/plugin-image'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import htmlPurge from 'vite-plugin-html-purgecss'
+require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
 
 import app from './package.json';
 
+console.log("BASE=", process.env.BASE)
+
 export default defineConfig({
     root: './app',
-    base: '/Admin/',
+    base: process.env.BASE,
     resolve: {
       alias: {
         '~bootstrap': resolve(__dirname, 'node_modules/bootstrap'),
