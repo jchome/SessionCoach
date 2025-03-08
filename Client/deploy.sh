@@ -2,7 +2,6 @@
 
 HOST=ftp.jc-apps.fr
 USER=jc-ap2399566
-PASSWORD='t5J72Z9xe8' # Take care of $,%, etc. with single quoted String
 DATE=$(date +%Y%m%d_%H%M)
 
 
