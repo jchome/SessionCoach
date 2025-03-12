@@ -22,7 +22,7 @@ export default class StepDetailElement extends LitElement {
     }
 
     render() {
-        var imgSrc = ""
+        var imgSrc = "./assets/img/default-step.avif"
         if(this.step.visual){
             imgSrc = SERVER_URL + PUBLIC_PATH + this.step.visual
         }

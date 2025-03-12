@@ -6,10 +6,9 @@
   "scripts": {
     "start": "NODE_ENV=development vite --config vite.config.ts",
     "build": "vite build",
-    "postbuild": "cp -r src/assets/img dist/assets/img",
+    "postbuild": "cp -r src/assets/img dist/assets/img && ./deploy.sh",
     "build-test": "vite build --config vite-test.config.ts && cp -r src/assets/img dist-test/assets/img",
     "deploy-test": "./deploy-test.sh",
-    "deploy": "./deploy.sh",
     "http-dist": "python3 -m http.server 8080 --directory dist/",
     "preview": "vite preview",
     "ionic:build": "npm run build",
