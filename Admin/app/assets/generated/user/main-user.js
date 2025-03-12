@@ -31,7 +31,7 @@ export default class MainUserElement extends LitElement {
             if(userPref != null && userPref.value != null){
                 this.user = JSON.parse(userPref.value)
             }else{
-                document.location.href = BASE_HREF + "/login.html"
+                document.location.href = BASE_HREF + "/pages/login.html"
                 return html``
             }
             return html`

@@ -1,6 +1,6 @@
 /** Translations **/
 import { registerTranslateConfig } from "lit-translate";
-import { use } from "lit-translate";
+
 registerTranslateConfig({
     loader: lang => fetch(window.BASE_HREF+`/assets/i18n/${lang}.json`).then(res => res.json())
 })

@@ -1,6 +1,7 @@
 import { LitElement, html } from 'lit';
 import { until } from 'lit/directives/until.js'
 import { get, translate } from 'lit-translate'
+import { Preferences } from '@capacitor/preferences';
 
 import { Modal, Toast } from 'bootstrap';
 
@@ -20,6 +21,7 @@ export default class GenericObjectElement extends LitElement {
 
     constructor() {
         super()
+        this.conf = undefined
         this.foreignData = {}
         this.LABEL_SUFFIX = "_label"
         this.modalSelector = null
@@ -100,11 +102,12 @@ export default class GenericObjectElement extends LitElement {
         return this.loadMetadata().then(() => {
             const foreignFields = this.metadata.fields.filter(f => f.references != undefined && f.references.access != "ajax")
             return new Promise((resolve, reject) => {
-                let promises = [] 
+                let promises = [ Preferences.get({ key: window.KEY_CONFIG }) ] 
                 for(let foreignField of foreignFields){
                     promises.push(this.loadForeignData(foreignField.references.object))
                 }
                 Promise.all(promises).then((result) => {
+                    this.conf = JSON.parse(result[0].value)
                     resolve()
                 })
             })

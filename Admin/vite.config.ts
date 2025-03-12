@@ -7,8 +7,6 @@ require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
 
 import app from './package.json';
 
-console.log("BASE=", process.env.BASE)
-
 export default defineConfig({
     root: './app',
     base: process.env.BASE,
