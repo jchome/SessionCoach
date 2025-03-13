@@ -5,6 +5,7 @@
  */
 namespace App\Controllers\Api\v1;
 use App\Controllers\Api\SecuredResourceController;
+use Exception;
 
 class Session extends SecuredResourceController {
 
@@ -27,8 +28,11 @@ class Session extends SecuredResourceController {
         $limit  = $this->request->getGet('limit') ?? 10;     // Limite d'éléments par page (10 par défaut)
         $searchField = $this->request->getGet('search_on');
         $searchValue = $this->request->getGet('search_value');
-
-        return $this->searchIndex($sortBy, $order, $page, $limit, $searchField, $searchValue);
+        try{
+            return $this->searchIndex($sortBy, $order, $page, $limit, $searchField, $searchValue);
+        }catch(Exception $e){
+            return $this->failUnauthorized();
+        }
     }
 
     /**

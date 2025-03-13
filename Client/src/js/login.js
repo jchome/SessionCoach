@@ -117,15 +117,14 @@ export default class LoginElement extends LitElement {
     }
 
     loadData(){
-        return new Promise((resolve) => {
+        return new Promise((resolve, reject) => {
             call('/Security/csrf', 'GET').then((responseOk) => {
                 if(responseOk){
                     resolve(responseOk.data)
                 }else{
                     // Don't allow to connect
                     console.error("Cannot connect...")
-                    console.error(responseFailure)
-                    resolve()
+                    reject()
                 }
             })
         })

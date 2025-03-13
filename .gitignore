@@ -3,3 +3,5 @@ Client/node_modules
 API/writable/
 Client/dist
 **/deploy.sh
+**/package-lock.json
+Client/package-lock.json

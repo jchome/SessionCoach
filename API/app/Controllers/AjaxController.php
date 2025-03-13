@@ -22,6 +22,7 @@ class AjaxController extends \App\Controllers\BaseController {
         if (preg_match('/Bearer\s(\S+)/', $authorization, $matches)) {
             $token = $matches[1];
         }else{
+			log_message('error', "No token");
             throw new Exception("No token");
         }
 
@@ -30,15 +31,15 @@ class AjaxController extends \App\Controllers\BaseController {
 
 	protected function getUserForToken($userToken){
 		if($userToken == "") {
-            log_message('debug', 'userToken is empty');
+			log_message('error', "userToken is empty");
 			throw new Exception('Token is required');
 		}
 		$userModel = new UserModel();
 
-        //log_message('debug', '[AjaxController.php] userToken: ' . $userToken);
+        log_message('debug', '[AjaxController.php] userToken: ' . $userToken);
         $users = $userModel->asObject()->where('token', $userToken)->findAll();
         if(sizeof($users) != 1){
-            log_message('debug', 'User not granted');
+            log_message('error', 'User not granted');
             throw new Exception('User not granted');
         }
         $user = end($users);
@@ -56,14 +57,14 @@ class AjaxController extends \App\Controllers\BaseController {
         */
 		return $user;
 	}
-
+/*
 	protected function checkHeader(): bool{
         // OPTIONS method does not provide the header
 		if($this->request->getMethod(true) == 'OPTIONS'){
 			return true;
 		}
 		return ($this->request->getHeaderLine('X-YouDance') == "YouDance-App");
-	}
+	}*/
 
 	public function getLangFromHeaders(): string{
 		return $this->request->getHeaderLine('Content-Language');

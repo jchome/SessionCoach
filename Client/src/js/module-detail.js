@@ -39,7 +39,6 @@ export default class ModuleDetailElement extends LitElement {
 
     gotoNextStep(event){
         const currentStep = event.detail
-        console.log("currentStep", currentStep)
         var nextStep = undefined
         for(let step of this.module.steps){
             if(step.order > currentStep.order){
@@ -47,7 +46,6 @@ export default class ModuleDetailElement extends LitElement {
                 break
             }
         }
-        console.log("nextStep", nextStep)
         if(nextStep == undefined){
             //console.log("Go to next module")
             this.dispatchEvent(new CustomEvent('gotoNextModule', {
@@ -55,7 +53,6 @@ export default class ModuleDetailElement extends LitElement {
                 bubbles: true
             }))
         }else{
-            console.log("scrollToElement", nextStep.id)
             this.dispatchEvent(new CustomEvent('scrollToElement', {
                 detail: 'step_' + nextStep.id,
                 bubbles: true

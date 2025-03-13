@@ -1,3 +1,4 @@
+import { Preferences } from '@capacitor/preferences';
 
 window.KEY_USER_TOKEN = "SessionCoach-App-user-token"
 
@@ -9,10 +10,13 @@ window.KEY_USER_TOKEN = "SessionCoach-App-user-token"
  * @param {Dict} data 
  * @returns 
  */
-window.call = function(url, method = "GET", data = {}, headers = undefined){
+window.call = async function(url, method = "GET", data = {}, headers = undefined){
+    const userToken = await Preferences.get({ key: KEY_USER_TOKEN })
+    //console.log("CALL ", url, userToken.value)
     const newHeaders = headers || {
         'X-App': KEY_APP,
         'X-Requested-With': 'XMLHttpRequest',
+        'Authorization': 'Bearer ' + JSON.parse(userToken.value),
     }
     var options = {
         method: method,

@@ -5,11 +5,12 @@ use App\Controllers\Api\v1\Session as V1Session;
 class Session extends V1Session {
 
     protected function searchIndex($sortBy, $order, $page, $limit, $searchField, $searchValue){
-        $user_id = 2; //= Pauline
+        $user = $this->validateUserAndApp();
+        
         $this->model->builder()
             ->select('sc_session.*')
             ->join('sc_access', 'sc_access.session_id = sc_session.id')
-            ->where('sc_access.user_id', $user_id)
+            ->where('sc_access.user_id', $user->id)
             ->orderBy('sc_session.name', 'asc');
 
         $sessions = $this->model->get()->getResult();

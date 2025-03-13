@@ -65,26 +65,22 @@ export default class MainApp extends LitElement {
     loadUser(){
         return new Promise((resolve, reject) => {
             if(this.token){
-                return this.loadData().then(() => resolve())
+                this.loginWithToken(this.token).then(() => resolve())
             }
             const tokenAsParameter = (new URLSearchParams(window.location.search)).get("token");
             if(tokenAsParameter){
                 this.userLogin(encodeURIComponent(tokenAsParameter)).then(() => {
-                    console.log("userLogin success")
-                    this.token = tokenAsParameter
-                    return resolve()
+                    return this.loginWithToken(tokenAsParameter).then(() => resolve())
                 })
             }else{
                 // Get the token in the local storage
                 Preferences.get({ key: KEY_USER_TOKEN }).then((userTokenObj) => {
                     try {
                         const token = JSON.parse(userTokenObj.value)
-                        console.log("loginWithToken...", token)
-                        this.loginWithToken(token).then(() => {
-                            resolve()
-                        }, () => {
-                            reject()
-                        })
+                        if(token == null){
+                            return reject()
+                        }
+                        return this.loginWithToken(token).then(() => resolve())
                     } catch (error) {
                         // If something goes wrong with storage, cleanup
                         console.error(error)
@@ -98,7 +94,29 @@ export default class MainApp extends LitElement {
     }
 
     loginWithToken(token){
-        alert("TODO!")
+        return new Promise((resolve, reject) => {
+            if(!token){
+                return reject()
+            }
+            call('/api/v2/auth', 'GET').then((responseOk) => {
+                if(responseOk && responseOk.status === 'ok'){
+                    const user = responseOk.user
+                    this.loadData().then(() => { 
+                        return resolve()
+                    })
+                }else{
+                    // Purge parameters for clean reload
+                    Preferences.clear()
+                    reject()
+                }
+            },
+            (responseFailure) => {
+                //Preferences.clear()
+                console.error("Erreur de réponse du serveur.")
+                console.log(responseFailure)
+                reject()
+            })
+        })
     }
 
     userConnected(event){
