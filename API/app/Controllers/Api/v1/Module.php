@@ -135,7 +135,14 @@ class Module extends SecuredResourceController {
                 ->orderBy($sortBy, $order)
                 ->paginate($limit, 'default', $page);
         }
-            
+
+        // Convert types for a better json format
+        foreach($items as $item){
+            $item->id = intval( $item->id );
+            $item->order = intval( $item->order );
+            $item->session_id = intval( $item->session_id );
+        }
+
         $response = [
             'data' => $items,
             'pager' => $this->model->pager->getDetails(),

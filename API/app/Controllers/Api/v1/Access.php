@@ -128,7 +128,14 @@ class Access extends SecuredResourceController {
                 ->orderBy($sortBy, $order)
                 ->paginate($limit, 'default', $page);
         }
-            
+
+        // Convert types for a better json format
+        foreach($items as $item){
+            $item->id = intval( $item->id );
+            $item->user_id = intval( $item->user_id );
+            $item->session_id = intval( $item->session_id );
+        }
+
         $response = [
             'data' => $items,
             'pager' => $this->model->pager->getDetails(),

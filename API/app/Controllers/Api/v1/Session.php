@@ -127,7 +127,12 @@ class Session extends SecuredResourceController {
                 ->orderBy($sortBy, $order)
                 ->paginate($limit, 'default', $page);
         }
-            
+
+        // Convert types for a better json format
+        foreach($items as $item){
+            $item->id = intval( $item->id );
+        }
+
         $response = [
             'data' => $items,
             'pager' => $this->model->pager->getDetails(),

@@ -14,6 +14,7 @@ class Session extends V1Session {
 
         $sessions = $this->model->get()->getResult();
         foreach($sessions as $session){
+            $session->id = intval($session->id);
             $session->modules = $this->getModules($session->id);
         }
         $response = [
@@ -31,6 +32,9 @@ class Session extends V1Session {
             ->get();
         $modules = $query->getResult();
         foreach($modules as $module){
+            $module->id = intval($module->id);
+            $module->order = intval($module->order);
+            $module->session_id = intval($module->session_id);
             $module->steps = $this->getSteps($module->id);
         }
         return $modules;
@@ -44,6 +48,11 @@ class Session extends V1Session {
             ->orderBy('sc_step.order', 'asc')
             ->get();
         $steps = $query->getResult();
+        foreach($steps as $step){
+            $step->id = intval($step->id);
+            $step->order = intval($step->order);
+            $step->module_id = intval($step->module_id);
+        }
         return $steps;
 
     }
