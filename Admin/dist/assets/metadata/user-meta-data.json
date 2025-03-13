@@ -34,10 +34,10 @@
             {
                 "key": "password",
                 "primary": false,
-                "type": "varchar(255)",
+                "type": "password(255)",
                 "required": true,
                 "show": {
-                    "list": true,
+                    "list": false,
                     "edit": true
                 }
             },

@@ -1,0 +1,284 @@
+
+/* @import url('./forgot-password.css');  */
+
+
+app-login .login, app-login .fullscreen {
+    background-color: black;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    height: 100%;
+}
+
+
+app-login .version{
+    color: #fff;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+
+app-login .fullscreen p{
+    color: #999;
+}
+app-login .fullscreen .loader{
+    color: #999;
+}
+
+app-login .login form{
+    margin-top: 100px;
+}
+app-login .login .inputs {
+    position: relative;
+    margin: 2em;
+    /* top: 50%; */
+    margin-bottom: 22px;
+    font-family: var(--font-text);
+}
+
+
+app-login .login .input {
+    border: 1px solid white;
+    border-radius: 7px;
+    box-sizing: border-box;
+    color: black;
+    display: block;
+    font-size: 17px;
+    margin: 10px 0;
+    outline: none !important;
+    opacity: .6;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 10px 0;
+}
+
+app-login .login .button-container {
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+app-login .login .button {
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(50, 50, 50, 0.5);
+    border-radius: 16px;
+    display: block;
+    font-size: 16px;
+    height: 56px;
+    margin: 0 auto;
+    max-width: 300px;
+    outline: none !important;
+    overflow: hidden;
+    position: relative;
+    top: 76%;
+    transition: box-shadow 150ms;
+    width: 90%;
+}
+
+app-login .login .button.animate {
+    transition: width 250ms 200ms;
+    width: 56px;
+}
+
+app-login .login .circle {
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+    pointer-events: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 0px;
+    width: 0px;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+app-login .login .circle.grow {
+    animation: grow 2s forwards;
+}
+
+@keyframes grow {
+    0% {
+        opacity: 0.5;
+        width: 10px;
+        height: 10px;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        width: 1500px;
+        height: 1500px;
+    }
+}
+
+app-login .login .sign-in {
+    color: black;
+    opacity: 0.6;
+}
+
+app-login .login .sign-in.animate {
+    opacity: 0;
+    transition: opacity 150ms 200ms;
+}
+
+app-login .login .loader {
+    pointer-events: none;
+    position: absolute;
+    /* width: 28px; */
+    /* height: 28px; */
+    left: calc(50% - 17px);
+    top: 10px;
+    opacity: 0;
+}
+
+app-login .loader.animate {
+    opacity: 0.9;
+    transition: opacity 150ms 350ms forwards;
+}
+
+app-login .loader.animateOut {
+    opacity: 0;
+    transition: opacity 350ms forwards;
+}
+
+app-login .error{
+    margin: 1em;
+    background-color: #ddd;
+    padding: 1em;
+    font-weight: bold;
+}
+
+app-login .forgot-password{
+    color: #555;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 5px;
+    padding: 0.25em;
+}
+
+app-login .warning{
+    background-color: #ddd;
+    color: #900;
+    margin: 1em;
+    border-radius: 5px;
+    font-family: var(--font-text);
+}
+
+
+/* *******************************************************
+ * LOGIN  WITH GOOGLE
+ * ******************************************************/
+
+ .gsi-material-button {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -webkit-appearance: none;
+    background-color: WHITE;
+    background-image: none;
+    border: 1px solid #747775;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #1f1f1f;
+    cursor: pointer;
+    font-family: 'Roboto', arial, sans-serif;
+    font-size: 14px;
+    height: 40px;
+    letter-spacing: 0.25px;
+    outline: none;
+    overflow: hidden;
+    padding: 0 12px;
+    position: relative;
+    text-align: center;
+    -webkit-transition: background-color .218s, border-color .218s, box-shadow .218s;
+    transition: background-color .218s, border-color .218s, box-shadow .218s;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: auto;
+    max-width: 400px;
+    min-width: min-content;
+  }
+  
+  .gsi-material-button .gsi-material-button-icon {
+    height: 20px;
+    margin-right: 12px;
+    min-width: 20px;
+    width: 20px;
+  }
+  
+  .gsi-material-button .gsi-material-button-content-wrapper {
+    -webkit-align-items: center;
+    align-items: center;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    height: 100%;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+  }
+  
+  .gsi-material-button .gsi-material-button-contents {
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    font-family: 'Roboto', arial, sans-serif;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: top;
+  }
+  
+  .gsi-material-button .gsi-material-button-state {
+    -webkit-transition: opacity .218s;
+    transition: opacity .218s;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  
+  .gsi-material-button:disabled {
+    cursor: default;
+    background-color: #ffffff61;
+    border-color: #1f1f1f1f;
+  }
+  
+  .gsi-material-button:disabled .gsi-material-button-contents {
+    opacity: 38%;
+  }
+  
+  .gsi-material-button:disabled .gsi-material-button-icon {
+    opacity: 38%;
+  }
+  
+  .gsi-material-button:not(:disabled):active .gsi-material-button-state, 
+  .gsi-material-button:not(:disabled):focus .gsi-material-button-state {
+    background-color: #303030;
+    opacity: 12%;
+  }
+  
+  .gsi-material-button:not(:disabled):hover {
+    -webkit-box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+  }
+  
+  .gsi-material-button:not(:disabled):hover .gsi-material-button-state {
+    background-color: #303030;
+    opacity: 8%;
+  }
+  

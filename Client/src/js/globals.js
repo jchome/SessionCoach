@@ -1,4 +1,6 @@
 
+window.KEY_USER_TOKEN = "SessionCoach-App-user-token"
+
 /**
  * Call an URL to the server, and use cache if possible
  * 

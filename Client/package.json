@@ -15,6 +15,7 @@
     "ionic:serve": "npm run start"
   },
   "dependencies": {
+    "@capacitor/preferences": "^7.0.0",
     "bootstrap": "^5.3.2",
     "bootstrap-icons": "^1.11.3",
     "lit": "^3.1.2"

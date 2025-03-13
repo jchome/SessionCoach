@@ -1,26 +1,24 @@
 import { LitElement, html } from 'lit'
 import { until } from 'lit/directives/until.js'
+import { Preferences } from '@capacitor/preferences';
 
+import LoginElement from './login.js';
 import SessionCardElement from './session-card.js';
 import SessionPopupElement from './session-popup.js';
 
 
 export default class MainApp extends LitElement {
 
-    static properties = { };
+    static properties = {
+        token: {type: String},
+     };
     static get styles() { };
 
     constructor() {
         super();
         this.sessions = undefined
-
-        this.isMobile = false
-        // Hide navigation bar + every 3 seconds
-        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-            this.isMobile = true
-        }
-
         this.addEventListener('open-session', this.openSession)
+        this.addEventListener('user-connected', this.userConnected)
 
     }
 
@@ -34,15 +32,17 @@ export default class MainApp extends LitElement {
 
 
     render() {
-        return until(this.loadData().then( () => {
+        return until(this.loadUser().then( () => {
             return html`
-            <div class="d-flex justify-content-center">
-            ${this.sessions.map( session => {
-                return html`<session-card .session=${session}></session-card>`
-            })}
-            </div>
-            <session-popup></session-popup>
-            `
+                <div class="d-flex justify-content-center">
+                ${this.sessions.map( session => {
+                    return html`<session-card .session=${session}></session-card>`
+                })}
+                </div>
+                <session-popup></session-popup>`
+        }, () => {
+            // Rejected on loadUser()
+            return html`<app-login />`
         }), html`
         <div class="fullscreen">
             <img src="./assets/img/logo.jpg" class="img-splash">
@@ -59,6 +59,51 @@ export default class MainApp extends LitElement {
                 this.sessions = responseOk.data
                 resolve()
             })
+        })
+    }
+
+    loadUser(){
+        return new Promise((resolve, reject) => {
+            if(this.token){
+                return this.loadData().then(() => resolve())
+            }
+            const tokenAsParameter = (new URLSearchParams(window.location.search)).get("token");
+            if(tokenAsParameter){
+                this.userLogin(encodeURIComponent(tokenAsParameter)).then(() => {
+                    console.log("userLogin success")
+                    this.token = tokenAsParameter
+                    return resolve()
+                })
+            }else{
+                // Get the token in the local storage
+                Preferences.get({ key: KEY_USER_TOKEN }).then((userTokenObj) => {
+                    try {
+                        const token = JSON.parse(userTokenObj.value)
+                        console.log("loginWithToken...", token)
+                        this.loginWithToken(token).then(() => {
+                            resolve()
+                        }, () => {
+                            reject()
+                        })
+                    } catch (error) {
+                        // If something goes wrong with storage, cleanup
+                        console.error(error)
+                        console.log("no token...")
+                        Preferences.clear()
+                        reject()
+                    }
+                })
+            }
+        })
+    }
+
+    loginWithToken(token){
+        alert("TODO!")
+    }
+
+    userConnected(event){
+        Preferences.set({key: KEY_USER_TOKEN, value: JSON.stringify(event.detail)}).then( () => {
+            this.token = event.detail
         })
     }
 

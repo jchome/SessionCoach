@@ -1,6 +1,7 @@
 
 @import url('./session-card.css');
 @import url('./session-popup.css');
+@import url('./login.css');
 
 .img-splash{
     width: 80%;

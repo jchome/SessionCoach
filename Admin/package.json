@@ -7,6 +7,7 @@
     "start": "NODE_ENV=development vite",
     "vite-build-KO": "vite build",
     "build": "node ./build.js",
+    "postbuild": "./deploy.sh",
     "webpack-win": ".\\node_modules\\.bin\\webpack.cmd",
     "webpack": "./node_modules/.bin/webpack",
     "start-dist": "./node_modules/http-server/bin/http-server ./dist",
