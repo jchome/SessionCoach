@@ -70,25 +70,22 @@ class Security extends \App\Controllers\AjaxController {
             log_message('debug','[Security.php] : password is incorrect ('.$password.' // '.$user->password.')');
             return $this->statusError('Identifiant ['.$login.'] ou mot de passe incorrect.');
         }
-        
+
+        /* TODO: check the application key
         $app = $this->request->getHeaderLine('X-App');
         //log_message('debug','[Security.php] : check app:' . $app . " // " . $user->profile);
 		if($app != APP_ADMIN){
 			log_message('debug','[Security.php] : user is ADMIN, but app is ' . $app);
             return $this->statusError('Application non valide...');
-		}
+		}*/
 
         //log_message('debug','[Security.php] : name: ' . $user->email);
         //log_message('debug','[Security.php] : token: ' . $user->token);
-        /*if($user->email == "demo@me.com" && $user->token != ""){
-            // Reuse the existing token
-        }else*/{
-            $ipAddress = $this->request->getIPAddress();
-            $user->token = generateToken($user->id, $ipAddress);
-            $user->expiration_token = computeTokenExpirationDate();
-            $userModel->update($user->id, $user);
-            //log_message('debug','[Security.php] : token: ' . $user->token);
-        }
+        $ipAddress = $this->request->getIPAddress();
+        $user->token = generateToken($user->id, $ipAddress);
+        $user->expiration_token = computeTokenExpirationDate();
+        $userModel->update($user->id, $user);
+        //log_message('debug','[Security.php] : token: ' . $user->token);
         $user->password = null;
 
         return $this->statusOK($user);
