@@ -61,6 +61,8 @@ class User extends SecuredResourceController {
             return $this->failValidationErrors($this->validator->getErrors());
         }
 
+        $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
         helper(['image', 'database']);
         $data['id'] = empty($data['id']) ? null : intval($data['id']);
         $existingObject = $this->createData($data);
@@ -79,7 +81,6 @@ class User extends SecuredResourceController {
         if (!$this->validate([
                 'name' => 'required',
                 'login' => 'required',
-                'password' => 'required',
         ])) {
             return $this->failValidationErrors($this->validator->getErrors());
         }
@@ -91,6 +92,11 @@ class User extends SecuredResourceController {
 
         helper(['image', 'database']);
         $data['id'] = empty($data['id']) ? null : intval($data['id']);
+        if(empty($data['password'])){
+            unset($data['password']);
+        }else{
+            $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+        }
 
         return $this->updateData($id, $data);
     }

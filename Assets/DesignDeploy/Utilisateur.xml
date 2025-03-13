@@ -10,7 +10,7 @@
 	<attribute id="login" name="Login" nullable="NO" type="varchar(255)" >
 		<description></description>
 	</attribute>
-	<attribute id="password" name="Mot de passe" nullable="NO" type="varchar(255)" >
+	<attribute id="password" name="Mot de passe" nullable="NO" type="password(255)" >
 		<description></description>
 	</attribute>
 	<attribute id="token" name="Token" nullable="YES" type="varchar(4000)" >
