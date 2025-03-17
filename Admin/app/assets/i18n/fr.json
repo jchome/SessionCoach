@@ -28,7 +28,8 @@
         "delete": "Supprimer",
         "download": "Télécharger",
         "edit": "Modifier",
-        "detail": "Détails"
+        "detail": "Détails",
+        "manage": "Gérer"
     },
     "object":{
         "access": {

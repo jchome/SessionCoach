@@ -12,6 +12,12 @@ export default class SessionListElement extends GenericListElement {
     constructor() {
         super()
         this.objectName = "session"
+        this.actions.push( {
+                code: 'manage', 
+                cssClass: 'btn btn-sm btn-primary mx-2 action-manage'
+            }
+        )
+        this.addEventListener('manage', this.onManage)
     }
 
     /** Override if needed
@@ -35,6 +41,11 @@ export default class SessionListElement extends GenericListElement {
                 .metadata=${ this.metadata }
                 .user="${ this.user }">
             </app-session-create>`
+    }
+
+    onManage(event){
+        console.log(event.detail.item.id)
+        document.location.href = window.BASE_HREF + '/pages/session-manage.html?id='+event.detail.item.id
     }
 
 
