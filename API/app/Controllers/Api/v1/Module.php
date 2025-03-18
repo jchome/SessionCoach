@@ -128,7 +128,7 @@ class Module extends SecuredResourceController {
         if (!empty($searchField) && !empty($searchValue)) {
             $items = $this->model->asObject()
                 ->orderBy($sortBy, $order)
-                ->like($searchField, $searchValue)
+                ->where($searchField, $searchValue)
                 ->paginate($limit, 'default', $page);
         }else{
             $items = $this->model->asObject()

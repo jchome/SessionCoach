@@ -89,4 +89,3 @@ import '../../node_modules/jodit/es2021/jodit.min.css'
 // import generated components
 import * as generated from './generated/index.js'
 
-import ManageSessionElement from "./js/manage-session.js"

@@ -12,16 +12,19 @@ export default class StepListElement extends GenericListElement {
     constructor() {
         super()
         this.objectName = "step"
+
+        const urlParams = new URLSearchParams(window.location.search)
+        this.module_id = urlParams.get("module_id")
+        this.session_id = urlParams.get("session_id")
     }
 
-    /** Override if needed
     urlOfList(){
-        var sortQuery = ""
-        if(this.orderBy != undefined){
-            sortQuery = `&sort_by=${this.orderBy}&order=${this.asc?'asc':'desc'}`
+        if(this.module_id){
+            return `/api/v1/${this.objectName}s/?limit=999&sort_by=order&search_on=module_id&search_value=${this.module_id}`
+        }else{
+            return super.urlOfList()
         }
-        return `/api/v2/steps/?page=${this.currentPage}${sortQuery}`
-    }*/
+    }
 
     getEditorHtml(){
         return html`<app-step-edit id="editor" 
@@ -35,6 +38,14 @@ export default class StepListElement extends GenericListElement {
                 .metadata=${ this.metadata }
                 .user="${ this.user }">
             </app-step-create>`
+    }
+
+    getTopRightHtml(){
+        return html`<button class="btn btn-sm btn-primary" @click=${this.backToModule}>Retour</button>`
+    }
+
+    backToModule(event){
+        document.location.href = window.BASE_HREF + '/pages/module.html?session_id='+this.session_id
     }
 
 

@@ -81,6 +81,7 @@ export default class GenericListElement extends LitElement {
             this.items = this.convertData(result.data)
             return html`
                 <h1 class="m-2">${translate("object."+this.objectName+".title-list")}</h1>
+                ${ this.getTopRightHtml() }
                 <app-table 
                     .items=${ this.items }
                     .columns=${ this.columns }
@@ -114,6 +115,10 @@ export default class GenericListElement extends LitElement {
             </div>`
         )
         
+    }
+
+    getTopRightHtml(){
+        return html``
     }
 
     /**

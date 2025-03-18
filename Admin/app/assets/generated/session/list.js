@@ -44,8 +44,7 @@ export default class SessionListElement extends GenericListElement {
     }
 
     onManage(event){
-        console.log(event.detail.item.id)
-        document.location.href = window.BASE_HREF + '/pages/session-manage.html?id='+event.detail.item.id
+        document.location.href = window.BASE_HREF + '/pages/module.html?session_id='+event.detail.item.id
     }
 
 
