@@ -80,8 +80,11 @@ export default class GenericListElement extends LitElement {
             this.conf = JSON.parse(confPref.value)
             this.items = this.convertData(result.data)
             return html`
-                <h1 class="m-2">${translate("object."+this.objectName+".title-list")}</h1>
-                ${ this.getTopRightHtml() }
+                <div class="list-header">
+                    <h1 class="m-2">${translate("object."+this.objectName+".title-list")}</h1>
+                    ${ this.getTopRightHtml() }
+                </div>
+                <div class="list-sub-header">${ this.getSubHeaderHtml() }</div>
                 <app-table 
                     .items=${ this.items }
                     .columns=${ this.columns }
@@ -118,6 +121,10 @@ export default class GenericListElement extends LitElement {
     }
 
     getTopRightHtml(){
+        return html``
+    }
+
+    getSubHeaderHtml(){
         return html``
     }
 
@@ -234,7 +241,6 @@ export default class GenericListElement extends LitElement {
     }
 
     loadData(page){
-        var url = this.urlOfList()
         return new Promise((resolve, reject) => {
             call(this.urlOfList(), 'GET').then((responseOk, responseFailure) => {
                 //console.log(responseOk)
@@ -279,8 +285,16 @@ export default class GenericListElement extends LitElement {
         })
     }
 
-
+    /**
+     * Get foreign object
+     * 
+     * @param {Number} index The line number if the table
+     * @param {Object} field The referenced object (extract of the metadata)
+     * @param {any} value The value of the field
+     * @returns Promise of {field, index, label}
+     */
     loadForeignData(index, field, value){
+        //console.log("loadForeignData", index, field, value)
         return new Promise((resolve, reject) => {
             call('/api/v1/'+field.references.object+'s/'+value, 'GET').then((responseOk, responseFailure) => {
                 if(responseOk){
@@ -336,7 +350,7 @@ export default class GenericListElement extends LitElement {
 
     onCellClicked(event){
         const target = event.detail.target
-        console.log(target)
+        //console.log(target)
         if(target.tagName != 'IMG'){
             return
         }

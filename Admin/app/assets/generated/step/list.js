@@ -16,6 +16,7 @@ export default class StepListElement extends GenericListElement {
         const urlParams = new URLSearchParams(window.location.search)
         this.module_id = urlParams.get("module_id")
         this.session_id = urlParams.get("session_id")
+        this.moduleName = undefined
     }
 
     urlOfList(){
@@ -24,6 +25,22 @@ export default class StepListElement extends GenericListElement {
         }else{
             return super.urlOfList()
         }
+    }
+
+    loadModel(){
+        return new Promise((resolve, reject) => {
+            super.loadModel().then( _ => {
+                if(this.session_id){
+                    // Remove the column module_id
+                    const indexOfFK = this.columns.findIndex( col => col.key == "module_id")
+                    const moduleObject = this.columns.splice(indexOfFK, 1)
+                    this.loadForeignData(-99, moduleObject[0], this.module_id).then((moduleData) => {
+                        this.moduleName = moduleData.label
+                    })
+                }
+                resolve()
+            })
+        })
     }
 
     getEditorHtml(){
@@ -41,7 +58,11 @@ export default class StepListElement extends GenericListElement {
     }
 
     getTopRightHtml(){
-        return html`<button class="btn btn-sm btn-primary" @click=${this.backToModule}>Retour</button>`
+        return html`<button class="btn btn-sm btn-secondary btn-back" @click=${this.backToModule}>Retour</button>`
+    }
+
+    getSubHeaderHtml(){
+        return html`Module <i>${this.moduleName}</i>`
     }
 
     backToModule(event){

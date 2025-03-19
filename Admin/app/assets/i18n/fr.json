@@ -29,7 +29,8 @@
         "download": "Télécharger",
         "edit": "Modifier",
         "detail": "Détails",
-        "manage": "Gérer"
+        "manage": "Gérer",
+        "logout": "Se déconnecter"
     },
     "object":{
         "access": {

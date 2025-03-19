@@ -3,7 +3,7 @@
     z-index: 200000;
 }
 
-/* center the loader*/
+/* center the loader */
 .centered-loader{
     width: 100%;
     height: 100%;
@@ -12,6 +12,7 @@
     align-items: center;
 }
 
+/* ??? */
 .btnMode{
     border: 1px solid black;
 }
@@ -27,6 +28,8 @@
 .btnMode.active:hover{
     background-position: 60% center;
 }
+
+/* Light mode of the checkbox */
 html[data-bs-theme="light"] .form-check-input:checked {
     background-color: rgba(255, 255, 255, 0.5);
     border-color: rgba(255, 255, 255, 0.75);
@@ -36,6 +39,7 @@ html[data-bs-theme="light"] .form-check-input:checked {
     max-width: 40px;
     max-height: 40px;
 }
+
 /* Span containing the unique id of the object in edit mode */
 span#uniqueId::before{
     content: "id:";
@@ -48,6 +52,7 @@ span#uniqueId{
     left: var(--bs-modal-padding);
 }
 
+/* Required field */
 label.required::after{
     content: "*";
     display: inline-block;
@@ -103,4 +108,28 @@ textarea.wysiwyg-editor{
     width: 100%;
     height: 20em;
     font-family: 'Courier New', Courier, monospace;
+}
+
+.list-header{
+    display: flex;
+    align-items: center !important;
+}
+.list-header h1{
+    flex: 1 1 auto !important;
+}
+
+/* Go back button */
+.list-header .btn.btn-back::before{
+    content: "\F284";
+    font-family: "bootstrap-icons";
+    display: inline-block;
+    margin-right: 0.5em;
+}
+
+.list-header .btn.btn-back{
+    margin-right: 1em;
+}
+.list-sub-header{
+    margin-top: 0.5em;
+    margin-bottom: 1em;
 }

@@ -22,6 +22,7 @@ export default class ModuleListElement extends GenericListElement {
 
         const urlParams = new URLSearchParams(window.location.search)
         this.session_id = urlParams.get("session_id")
+        this.sessionName = undefined
     }
 
     urlOfList(){
@@ -31,18 +32,17 @@ export default class ModuleListElement extends GenericListElement {
             return super.urlOfList()
         }
     }
-    
-    getTopRightHtml(){
-        return html`<button class="btn btn-sm btn-primary" @click=${this.backToSessions}>Retour</button>`
-    }
 
     loadModel(){
         return new Promise((resolve, reject) => {
-            super.loadModel().then( _ => {
+            super.loadModel().then((_) => {
                 if(this.session_id){
                     // Remove the column session_id
                     const indexOfFK = this.columns.findIndex( col => col.key == "session_id")
-                    this.columns.splice(indexOfFK, 1)
+                    const sessionObject = this.columns.splice(indexOfFK, 1)
+                    this.loadForeignData(-99, sessionObject[0], this.session_id).then((sessionData) => {
+                        this.sessionName = sessionData.label
+                    })
                 }
                 resolve()
             })
@@ -62,16 +62,23 @@ export default class ModuleListElement extends GenericListElement {
                 .user="${ this.user }">
             </app-module-create>`
     }
+    
+    getTopRightHtml(){
+        return html`<button class="btn btn-sm btn-secondary btn-back" @click=${this.backToSessions}>Retour</button>`
+    }
 
-    onManage(event){
-        document.location.href = window.BASE_HREF + '/pages/step.html?module_id='+event.detail.item.id +
-            '&session_id=' + this.session_id
+    getSubHeaderHtml(){
+        return html`Séance <i>${this.sessionName}</i>`
     }
 
     backToSessions(event){
         document.location.href = window.BASE_HREF + '/pages/session.html'
     }
 
+    onManage(event){
+        document.location.href = window.BASE_HREF + '/pages/step.html?module_id='+event.detail.item.id +
+            '&session_id=' + this.session_id
+    }
 
 }
 

@@ -74,7 +74,12 @@ export default class NavBarElement extends LitElement {
                             ${ get('object.access.label') }
                         </app-dropdown-item>
                     </app-dropdown>
+
+                    <a class="btn btn-sm btn-outline-light me-2" href="${window.BASE_HREF}/pages/session.html">
+                        ${ get('object.session.label') }
+                    </a>
                     
+<!--
                     <app-dropdown id="menu-content"
                         label="${ get('app-navbar.menu.content')}"
                         show="label">
@@ -88,11 +93,13 @@ export default class NavBarElement extends LitElement {
                             ${ get('object.step.label') }
                         </app-dropdown-item>
                     </app-dropdown>
+                    -->
 
 
                     <span class="separator-fill"></span>
                     
-                    <button class="btn btn-sm btn-outline me-2" @click=${this.onLogout}>
+                    <button class="btn btn-sm btn-outline me-2" @click=${this.onLogout}
+                        title="${ get('action.logout') }">
                         <i class="bi bi-person-fill"></i> 
                     </button>
                     
