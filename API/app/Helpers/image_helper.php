@@ -91,7 +91,7 @@ function extractMetadata($inputData){
 }
 
 function manageFileUpload($data, $fieldName, $existingObject = null){
-
+    //log_message('debug', "data[fieldName]=" . $data[$fieldName]);
     if($data[$fieldName] == "DELETE"){
         if($existingObject != null && $existingObject[$fieldName] != ""){
             // Remove existing file
@@ -109,6 +109,7 @@ function manageFileUpload($data, $fieldName, $existingObject = null){
         // There is a new file
         if($existingObject != null && $existingObject[$fieldName] != ""){
             // Remove existing file
+            //log_message('debug', "Remove existing file");
             try{
                 unlink(PUBLIC_PATH . 'uploads/' . $existingObject[$fieldName]);
             }catch(Exception $e){
@@ -117,15 +118,22 @@ function manageFileUpload($data, $fieldName, $existingObject = null){
         }
         // Extract metadata + bytes from data['preview']
         $metadata = extractMetadata($data[$fieldName]);
-
+        //log_message('debug', "metadata=" . print_r($metadata, true));
+        if($metadata["data"] == ""){
+            // The file is not changed
+            return $data;
+        }
         // Save file with the good extension
         $preview_ext = Mimes::guessExtensionFromType($metadata["mime"]);
+        //log_message('debug', "preview_ext=" . $preview_ext);
         if($preview_ext == ""){
-            log_message('debug', "Mime type is unkwown " . $data[$fieldName]);
+            $preview_ext = substr($data[$fieldName], strrpos($data[$fieldName], ".") + 1);
+            log_message('debug', "Mime type is unkwown " . $data[$fieldName] . " -- Guessed: " . $preview_ext);
         }
         $filename =  'content_' . $data['id'] . '_'.$fieldName.'-'.time().'.' . $preview_ext;
         file_put_contents(PUBLIC_PATH . 'uploads/' . $filename, $metadata["data"]);
         $data[$fieldName] = $filename;
+        //log_message('debug', "filename=" . $filename);
     }else{
         // No new file
         $data[$fieldName] = "";

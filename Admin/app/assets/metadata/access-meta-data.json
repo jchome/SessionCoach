@@ -39,7 +39,7 @@
                 "references": {
                     "object": "session",
                     "key": "id",
-                    "label": "Name",
+                    "label": "name",
                     "access": "default"
                 } 
             }
