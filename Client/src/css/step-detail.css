@@ -78,3 +78,26 @@ step-detail .step-footer .next-btn{
     color: black;
     font-size: 20px;
 }
+
+
+@media (min-width: 768px) {
+    step-detail .step-header{
+        font-size: 1.2em;
+    }
+    step-detail .step-content .description{
+        font-size: 1.1em;
+    }
+    step-detail .step-footer{
+        font-size: 1.2em;
+    }
+    step-detail:first-child {
+        min-height: 70vh;
+    }
+}
+
+
+@media (max-width: 768px) {
+    step-detail .step-content .indicator-icon{
+        --size: 60px;
+    }
+}

@@ -133,3 +133,36 @@ textarea.wysiwyg-editor{
     margin-top: 0.5em;
     margin-bottom: 1em;
 }
+
+/* LOGIN */
+app-login #toggle-password{
+    position: absolute;
+    top: 3px;
+    right: 4px;
+    z-index: 9;
+    width: 28px;
+    height: 30px;
+    background: 0;
+    border: 0;
+}
+
+app-login button#toggle-password:active,
+app-login button#toggle-password:focus,
+app-login button#toggle-password:hover {
+  cursor: pointer;
+}
+
+app-login button#toggle-password:focus {
+  outline: none !important;
+}
+app-login button#toggle-password.active::before,
+app-login button#toggle-password.inactive::before{
+    display: inline;
+    font-family: "bootstrap-icons";
+}
+app-login button#toggle-password.active::before{
+    content: "\F341";
+}
+app-login button#toggle-password.active::before{
+    content: "\F340";
+}

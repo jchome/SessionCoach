@@ -34,9 +34,10 @@ export default class MainApp extends LitElement {
     render() {
         return until(this.loadUser().then( () => {
             return html`
-                <div class="d-flex justify-content-center">
+                <div class="row">
                 ${this.sessions.map( session => {
-                    return html`<session-card .session=${session}></session-card>`
+                    return html`<session-card .session=${session} 
+                        class="col-lg-3 col-md-6 col-sm-12"></session-card>`
                 })}
                 </div>
                 <session-popup></session-popup>`
@@ -44,8 +45,8 @@ export default class MainApp extends LitElement {
             // Rejected on loadUser()
             return html`<app-login />`
         }), html`
-        <div class="fullscreen">
-            <img src="./assets/img/logo.jpg" class="img-splash">
+        <div class="fullscreen pt-5">
+            <img src="./assets/img/logo.jpg" class="img-splash mt-5">
             <p class="mt-5">Chargement...</p>
             <div class="loader spinner-border" role="status">
                 <span class="visually-hidden">Chargement...</span>

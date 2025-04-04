@@ -56,14 +56,21 @@ export default class LoginPage extends LitElement {
                                             <label class="label" for="login">
                                                 ${ translate("app-login.login") }
                                             </label>
-                                            <input type="text" class="form-control" 
+                                            <input type="text" class="form-control" spellcheck="false" autocorrect="off"
                                                 placeholder="" value="" id="login" name="login" required>
                                         </div>
                                         <div class="form-group mb-3">
                                             <label class="label" for="password">
                                                 ${ translate("app-login.password") }
                                             </label>
-                                            <input type="password" class="form-control" placeholder="" name="password" id="password" required>
+                                            <div class="position-relative">
+                                                <input type="password" class="form-control" placeholder="" name="password" id="password" required
+                                                    spellcheck="false" autocorrect="off" @click=${ this.showPasswordToggle }>
+                                                <button id="toggle-password" type="button" class="d-none" @click=${ this.togglePassword }
+                                                    aria-label="Show password as plain text. Warning: this will display your password on the screen.">
+                                                </button>
+                                            </div>
+
                                         </div>
                                         <div class="text-center mt-5">
                                             <button class="btn btn-primary rounded submit px-3" @click=${this.sendLogin}>
@@ -165,6 +172,24 @@ export default class LoginPage extends LitElement {
                 toastBootstrap.show();
             }
         })
+    }
+
+    showPasswordToggle(event){
+        this.querySelector('#toggle-password').classList.remove("d-none");
+    }
+    togglePassword(event){
+        const passwordInput = this.querySelector('#password')
+        const togglerElt = this.querySelector('#toggle-password')
+        /*
+        if(passwordInput.type === "password"){
+            passwordInput.type = "text"
+            togglerElt.classList.add("active")
+            togglerElt.classList.remove("inactive")
+        }else{
+            passwordInput.type = "password"
+            togglerElt.classList.add("inactive")
+            togglerElt.classList.remove("active")
+        }*/
     }
 
 }

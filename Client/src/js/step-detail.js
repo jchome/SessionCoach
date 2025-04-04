@@ -34,7 +34,7 @@ export default class StepDetailElement extends LitElement {
          <div class="step-content pause">
             <div class="text-center mx-5 my-2" @click=${this.startTimer}>
                 <div class="indicator-icon"></div>
-                <img src="${imgSrc}" class="img-fluid">
+                <img src="${imgSrc}" class="img-fluid col-md-5 col-sm-10">
             </div>
             <div class="description mx-2">
                 ${ unsafeHTML(this.step.description) }

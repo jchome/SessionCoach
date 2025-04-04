@@ -10,6 +10,12 @@ module-detail .module-header{
     background-color: var(--bs-body-bg);
     font-family: var(--font-title);
 }
+
+@media (min-width: 768px) {
+    module-detail .module-header{
+        font-size: 1.5em;
+    }
+}
 module-detail .steps{
     
 }

@@ -1,7 +1,8 @@
 Admin/node_modules
 Client/node_modules
-API/writable/
 Client/dist
+Client/package-lock.json
+API/writable
+Admin/dist
 **/deploy.sh
 **/package-lock.json
-Client/package-lock.json

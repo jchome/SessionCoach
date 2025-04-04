@@ -11,3 +11,8 @@ session-popup .modal-header{
     --bs-modal-header-padding: 0.5em 1em;
     font-family: var(--font-title);
 }
+
+session-popup .zero-size{
+    width: 0;
+    height: 0;
+}

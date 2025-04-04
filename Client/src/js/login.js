@@ -87,8 +87,8 @@ export default class LoginElement extends LitElement {
                     <br>
                     <youdance-forgot-password></youdance-forgot-password -->`
             }
-            return html`<div class="login">
-                <img src="./assets/img/logo.jpg" class="img-splash">
+            return html`<div class="login pt-5 pt-md-0">
+                <img src="./assets/img/logo.jpg" class="img-splash mt-5 mt-md-0">
                 <p class="font-text version">v ${APP_VERSION}</p>
                 ${connextionHtml}
                 <div class="circle" class="d-none"></div>
