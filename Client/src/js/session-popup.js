@@ -24,6 +24,9 @@ export default class SessionPopupElement extends LitElement {
 
     render() {
         return html`
+            <video loop="true" autoplay="true" class="shutdown-blocker" onloadstart="this.volume=0.2">
+                <source type="video/mp4" src="assets/noop.mp4" />
+            </video>
             <div id="sessionModal" class="modal fade" tabindex="-1" aria-hidden="true" 
                 data-bs-theme="dark">
                 <div class="modal-dialog modal-fullscreen">
@@ -31,9 +34,6 @@ export default class SessionPopupElement extends LitElement {
                         <div class="modal-header">
                             <h5 id="title">--</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            <video loop autoplay class="zero-size">
-                                <source src="data:video/mp4;base64,AAAAHGZ0eXBpc29tAAACAGlzb21pc28ybXA0MQAAAAhmcmVlAAAAG21kYXQAAAGzABAHAAABthADAowdbb9/AAAC6W1vb3YAAABsbXZoZAAAAAB8JbCAfCWwgAAAA+gAAAAAAAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAIVdHJhawAAAFx0a2hkAAAAD3wlsIB8JbCAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAIAAAACAAAAAABsW1kaWEAAAAgbWRoZAAAAAB8JbCAfCWwgAAAA+gAAAAAVcQAAAAAAC1oZGxyAAAAAAAAAAB2aWRlAAAAAAAAAAAAAAAAVmlkZW9IYW5kbGVyAAAAAVxtaW5mAAAAFHZtaGQAAAABAAAAAAAAAAAAAAAkZGluZgAAABxkcmVmAAAAAAAAAAEAAAAMdXJsIAAAAAEAAAEcc3RibAAAALhzdHNkAAAAAAAAAAEAAACobXA0dgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAIAAgASAAAAEgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABj//wAAAFJlc2RzAAAAAANEAAEABDwgEQAAAAADDUAAAAAABS0AAAGwAQAAAbWJEwAAAQAAAAEgAMSNiB9FAEQBFGMAAAGyTGF2YzUyLjg3LjQGAQIAAAAYc3R0cwAAAAAAAAABAAAAAQAAAAAAAAAcc3RzYwAAAAAAAAABAAAAAQAAAAEAAAABAAAAFHN0c3oAAAAAAAAAEwAAAAEAAAAUc3RjbwAAAAAAAAABAAAALAAAAGB1ZHRhAAAAWG1ldGEAAAAAAAAAIWhkbHIAAAAAAAAAAG1kaXJhcHBsAAAAAAAAAAAAAAAAK2lsc3QAAAAjqXRvbwAAABtkYXRhAAAAAQAAAABMYXZmNTIuNzguMw=="></source>
-                            </video>
                         </div>
                         <div class="modal-body">
                             <div class="row m-0 h-100">
@@ -52,10 +52,11 @@ export default class SessionPopupElement extends LitElement {
         detailElt.session = session
 
         const modal = Modal.getOrCreateInstance('session-popup #sessionModal', {})
-        /*const modalElt = this.querySelector('#sessionModal')
+        const modalElt = this.querySelector('#sessionModal')
         modalElt.addEventListener('hide.bs.modal', () =>{
-            
-        })*/
+            this.querySelector('video').pause();
+        })
+        this.querySelector('video').play();
         modal.show()
     }
 
